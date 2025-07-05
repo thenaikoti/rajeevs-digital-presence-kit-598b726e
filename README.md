@@ -1,73 +1,207 @@
-# Welcome to your Lovable project
 
-## Project info
+# Rajeev Ranjan - Digital Consultant Website
 
-**URL**: https://lovable.dev/projects/65b42176-5411-4a6b-a08f-54ef23f94c71
+A modern, responsive business website for Rajeev Ranjan, a digital consultant and business strategist. Built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+### 🌐 Pages
+- **Home**: Hero section with professional photo, services overview, testimonials, and CTA
+- **About**: Professional background, timeline, achievements, and certifications
+- **Services**: Detailed service offerings with WhatsApp integration
+- **Contact**: Contact form, business information, and WhatsApp integration
+- **404**: Custom error page with navigation options
 
-**Use Lovable**
+### 📱 Design & User Experience
+- Modern, clean, and professional design
+- Blue, white, and grey corporate color palette
+- Fully responsive (mobile, tablet, desktop)
+- Smooth animations and transitions
+- Sticky navigation header
+- WhatsApp floating button
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/65b42176-5411-4a6b-a08f-54ef23f94c71) and start prompting.
+### 🚀 Technical Features
+- React 18 with TypeScript
+- Tailwind CSS for styling
+- React Router for navigation
+- React Hook Form for contact forms
+- Toast notifications
+- SEO optimized with meta tags
+- Structured data for search engines
 
-Changes made via Lovable will be committed automatically to this repo.
+### 📞 Communication Features
+- WhatsApp deep-link integration
+- Contact form with email delivery
+- Phone and email links
+- Professional contact information
 
-**Use your preferred IDE**
+### 🔧 SEO & Performance
+- Meta tags and Open Graph data
+- Structured data markup
+- Robots.txt configuration
+- Fast loading and optimized images
+- Semantic HTML structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── Header.tsx          # Navigation header
+│   ├── Footer.tsx          # Site footer
+│   ├── Layout.tsx          # Page layout wrapper
+│   └── WhatsAppButton.tsx  # Floating WhatsApp button
+├── pages/
+│   ├── Index.tsx           # Home page
+│   ├── About.tsx           # About page
+│   ├── Services.tsx        # Services page
+│   ├── Contact.tsx         # Contact page
+│   └── NotFound.tsx        # 404 error page
+└── hooks/
+    └── use-toast.ts        # Toast notification hook
 ```
 
-**Edit a file directly in GitHub**
+## Services Offered
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Digital Strategy Consulting**
+   - Digital maturity assessment
+   - Technology roadmap development
+   - Change management planning
+   - ROI optimization strategies
 
-**Use GitHub Codespaces**
+2. **Business Process Optimization**
+   - Process mapping and analysis
+   - Workflow optimization
+   - Automation implementation
+   - Performance metrics design
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **Risk Management Solutions**
+   - Risk assessment and analysis
+   - Mitigation strategy development
+   - Compliance framework design
+   - Crisis management planning
 
-## What technologies are used for this project?
+4. **Strategic Planning & Implementation**
+   - Strategic planning workshops
+   - Goal setting and KPI development
+   - Implementation roadmaps
+   - Progress tracking systems
 
-This project is built with:
+## Contact Information
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Phone**: +91 98765 43210
+- **Email**: rajeev@example.com
+- **Location**: New Delhi, India
+- **WhatsApp**: Available via floating button and contact forms
+- **Business Hours**: Mon-Fri 9AM-6PM, Sat 10AM-2PM IST
 
-## How can I deploy this project?
+## Setup Instructions
 
-Simply open [Lovable](https://lovable.dev/projects/65b42176-5411-4a6b-a08f-54ef23f94c71) and click on Share -> Publish.
+1. **Installation**
+   ```bash
+   npm install
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+2. **Development**
+   ```bash
+   npm run dev
+   ```
 
-Yes, you can!
+3. **Build**
+   ```bash
+   npm run build
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Customization Guide
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Update Contact Information
+- Edit phone numbers in all WhatsApp links
+- Update email addresses in contact forms
+- Modify business address and hours
+
+### Content Updates
+- Replace placeholder images with professional photos
+- Update service descriptions and features
+- Modify testimonials with real client feedback
+- Update about page with actual background information
+
+### Branding
+- Colors are defined in `tailwind.config.ts`
+- Logo can be updated in `Header.tsx`
+- Favicon files should be placed in `public/`
+
+### SEO Configuration
+- Update meta tags in `index.html`
+- Modify structured data for your business
+- Add Google Analytics tracking ID
+- Configure domain-specific URLs
+
+## Domain & Hosting Setup
+
+1. **Domain Configuration**
+   - Update all absolute URLs with your domain
+   - Configure DNS settings
+   - Set up SSL certificate
+
+2. **Hosting Deployment**
+   - Build the project: `npm run build`
+   - Deploy `dist/` folder to your hosting provider
+   - Configure server for SPA routing
+
+3. **Email Setup**
+   - Configure SMTP for contact form
+   - Set up email forwarding
+   - Test form submissions
+
+## Post-Launch Support Checklist
+
+- [ ] Test all contact forms
+- [ ] Verify WhatsApp links work correctly
+- [ ] Check mobile responsiveness
+- [ ] Test page loading speeds
+- [ ] Verify SEO meta tags
+- [ ] Set up Google Analytics
+- [ ] Configure email notifications
+- [ ] Test 404 error handling
+- [ ] Check social media links
+- [ ] Verify contact information accuracy
+
+## Support & Maintenance
+
+### Content Management
+- Update services and pricing
+- Add new testimonials
+- Refresh about page content
+- Update business hours and contact info
+
+### Technical Maintenance
+- Keep dependencies updated
+- Monitor website performance
+- Regular security updates
+- Backup website data
+
+### SEO & Marketing
+- Monitor search rankings
+- Update meta descriptions
+- Add new blog content (if needed)
+- Track Google Analytics data
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Performance Features
+
+- Optimized images and assets
+- Lazy loading for images
+- Efficient CSS and JavaScript bundling
+- Fast page transitions
+- Minimal external dependencies
+
+---
+
+**Ready to Launch**: This website is production-ready and includes all requested features. Follow the setup instructions and customize the content to match your specific requirements.
