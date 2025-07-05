@@ -22,10 +22,13 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">RR</span>
             </div>
-            <span className="text-xl font-bold text-gray-800">Rajeev Ranjan</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-800">Rajeev Ranjan</span>
+              <span className="text-xs text-gray-600">Environmental Scientist & IPR Consultant</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,8 +39,8 @@ const Header = () => {
                 to={item.href}
                 className={`font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-green-600 border-b-2 border-green-600'
+                    : 'text-gray-700 hover:text-green-600'
                 }`}
               >
                 {item.name}
@@ -48,18 +51,18 @@ const Header = () => {
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+919876543210"
-              className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+              href="tel:+91XXXXXXXXXX"
+              className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors"
             >
               <Phone size={16} />
-              <span className="text-sm">+91 98765 43210</span>
+              <span className="text-sm">+91-XXXXXXXXXX</span>
             </a>
             <a
-              href="mailto:rajeev@example.com"
-              className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+              href="mailto:rajeev.ranjan@email.com"
+              className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors"
             >
               <Mail size={16} />
-              <span className="text-sm">rajeev@example.com</span>
+              <span className="text-sm">rajeev.ranjan@email.com</span>
             </a>
           </div>
 
@@ -83,8 +86,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'text-green-600'
+                      : 'text-gray-700 hover:text-green-600'
                   }`}
                 >
                   {item.name}
@@ -92,18 +95,18 @@ const Header = () => {
               ))}
               <div className="pt-4 border-t border-gray-200">
                 <a
-                  href="tel:+919876543210"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors mb-2"
+                  href="tel:+91XXXXXXXXXX"
+                  className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors mb-2"
                 >
                   <Phone size={16} />
-                  <span className="text-sm">+91 98765 43210</span>
+                  <span className="text-sm">+91-XXXXXXXXXX</span>
                 </a>
                 <a
-                  href="mailto:rajeev@example.com"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                  href="mailto:rajeev.ranjan@email.com"
+                  className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors"
                 >
                   <Mail size={16} />
-                  <span className="text-sm">rajeev@example.com</span>
+                  <span className="text-sm">rajeev.ranjan@email.com</span>
                 </a>
               </div>
             </nav>

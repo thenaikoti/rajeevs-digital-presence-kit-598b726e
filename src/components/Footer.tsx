@@ -12,14 +12,17 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">RR</span>
               </div>
-              <span className="text-xl font-bold">Rajeev Ranjan</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold">Rajeev Ranjan</span>
+                <span className="text-sm text-gray-300">Environmental Scientist & IPR Consultant</span>
+              </div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted digital consultant providing comprehensive solutions for business growth, 
-              digital transformation, and strategic planning.
+              Your trusted consultant for environmental compliance and intellectual property protection. 
+              Guiding businesses and innovators towards sustainable growth and legal protection.
             </p>
             <div className="flex space-x-4">
               <a
@@ -83,22 +86,25 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <a
-                href="tel:+919876543210"
+                href="tel:+91XXXXXXXXXX"
                 className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Phone size={16} />
-                <span>+91 98765 43210</span>
+                <span>+91-XXXXXXXXXX</span>
               </a>
               <a
-                href="mailto:rajeev@example.com"
+                href="mailto:rajeev.ranjan@email.com"
                 className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Mail size={16} />
-                <span>rajeev@example.com</span>
+                <span>rajeev.ranjan@email.com</span>
               </a>
               <div className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
                 <span>New Delhi, India</span>
+              </div>
+              <div className="text-gray-300 text-sm">
+                <span>EnviroAndIPR.com</span>
               </div>
             </div>
           </div>

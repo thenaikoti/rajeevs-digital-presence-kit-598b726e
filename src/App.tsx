@@ -21,35 +21,35 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Helmet>
-            <title>Rajeev Ranjan - Digital Consultant & Business Strategist</title>
-            <meta name="description" content="Expert digital consulting services by Rajeev Ranjan. Strategic planning, business process optimization, and risk management solutions for sustainable growth." />
-            <meta name="keywords" content="digital consultant, business strategy, process optimization, risk management, digital transformation, business consulting, strategic planning" />
+            <title>Rajeev Ranjan – Environmental Scientist & IPR Consultant</title>
+            <meta name="description" content="Expert consultancy in environmental regulations and intellectual property rights. Services in EIA reports, patents, copyright, and more." />
+            <meta name="keywords" content="environmental scientist, IPR consultant, patent filing, EIA reports, environmental compliance, intellectual property, trademark registration, copyright protection" />
             <meta name="author" content="Rajeev Ranjan" />
-            <link rel="canonical" href="https://rajeev-ranjan.com" />
+            <link rel="canonical" href="https://EnviroAndIPR.com" />
             
             {/* Open Graph Meta Tags */}
-            <meta property="og:title" content="Rajeev Ranjan - Digital Consultant & Business Strategist" />
-            <meta property="og:description" content="Expert digital consulting services for business transformation and strategic growth." />
+            <meta property="og:title" content="Rajeev Ranjan – Environmental Scientist & IPR Consultant" />
+            <meta property="og:description" content="Expert consultancy in environmental regulations and intellectual property rights. Services in EIA reports, patents, copyright, and more." />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://rajeev-ranjan.com" />
-            <meta property="og:image" content="https://rajeev-ranjan.com/og-image.jpg" />
+            <meta property="og:url" content="https://EnviroAndIPR.com" />
+            <meta property="og:image" content="https://EnviroAndIPR.com/og-image.jpg" />
             
             {/* Twitter Card Meta Tags */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Rajeev Ranjan - Digital Consultant" />
-            <meta name="twitter:description" content="Expert digital consulting services for business transformation." />
-            <meta name="twitter:image" content="https://rajeev-ranjan.com/twitter-image.jpg" />
+            <meta name="twitter:title" content="Rajeev Ranjan – Environmental Scientist & IPR Consultant" />
+            <meta name="twitter:description" content="Expert consultancy in environmental regulations and intellectual property rights." />
+            <meta name="twitter:image" content="https://EnviroAndIPR.com/twitter-image.jpg" />
             
             {/* Structured Data */}
             <script type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
-                "name": "Rajeev Ranjan Consulting",
-                "description": "Digital consulting and business strategy services",
-                "url": "https://rajeev-ranjan.com",
-                "telephone": "+91-98765-43210",
-                "email": "rajeev@example.com",
+                "name": "Rajeev Ranjan Environmental & IPR Consulting",
+                "description": "Environmental consultancy and intellectual property rights services",
+                "url": "https://EnviroAndIPR.com",
+                "telephone": "+91-XXXXXXXXXX",
+                "email": "rajeev.ranjan@email.com",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "New Delhi",
@@ -57,12 +57,34 @@ const App = () => (
                 },
                 "founder": {
                   "@type": "Person",
-                  "name": "Rajeev Ranjan"
+                  "name": "Rajeev Ranjan",
+                  "jobTitle": "Environmental Scientist & IPR Consultant"
                 },
-                "sameAs": [
-                  "https://linkedin.com/in/rajeev-ranjan",
-                  "https://facebook.com/rajeev.ranjan"
-                ]
+                "serviceArea": {
+                  "@type": "Country",
+                  "name": "India"
+                },
+                "areaServed": "India",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Environmental & IPR Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Environmental Impact Assessment"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Patent Filing Services"
+                      }
+                    }
+                  ]
+                }
               })}
             </script>
           </Helmet>

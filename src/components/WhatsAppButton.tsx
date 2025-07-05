@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "919876543210";
-    const message = "Hi Rajeev, I found your website and would like to discuss my requirements. Can we schedule a consultation?";
+    const message = "Hi Rajeev, I found your website and would like to discuss my environmental and IPR consultation needs. Can we schedule a consultation?";
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
