@@ -1,5 +1,4 @@
-
-import { Leaf, Shield, FileCheck, BarChart3, Globe, Building, Users, Scale, BookOpen, ArrowRight, Phone, CheckCircle, Star, MapPin, Clock, Award, TrendingUp } from 'lucide-react';
+import { Leaf, Shield, FileCheck, BarChart3, Globe, Building, Users, Scale, BookOpen, ArrowRight, Phone, CheckCircle, Star, MapPin, Clock, Award, TrendingUp, Factory, Zap, Hammer, Home, Stethoscope, Laptop, TreePine, Wrench } from 'lucide-react';
 import Layout from '../components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -70,8 +69,16 @@ const Services = () => {
   ];
 
   const industries = [
-    "Manufacturing", "Oil & Gas", "Mining", "Construction", "Power & Energy", 
-    "Infrastructure", "Real Estate", "Agriculture", "Healthcare", "Technology"
+    { name: "Manufacturing", icon: <Factory className="w-5 h-5" />, description: "Industrial processes and compliance" },
+    { name: "Oil & Gas", icon: <Zap className="w-5 h-5" />, description: "Energy sector environmental solutions" },
+    { name: "Mining", icon: <Wrench className="w-5 h-5" />, description: "Sustainable extraction practices" },
+    { name: "Construction", icon: <Hammer className="w-5 h-5" />, description: "Building and infrastructure projects" },
+    { name: "Power & Energy", icon: <Zap className="w-5 h-5" />, description: "Renewable and traditional energy" },
+    { name: "Infrastructure", icon: <Building className="w-5 h-5" />, description: "Large-scale development projects" },
+    { name: "Real Estate", icon: <Home className="w-5 h-5" />, description: "Property development compliance" },
+    { name: "Agriculture", icon: <TreePine className="w-5 h-5" />, description: "Sustainable farming practices" },
+    { name: "Healthcare", icon: <Stethoscope className="w-5 h-5" />, description: "Medical facility compliance" },
+    { name: "Technology", icon: <Laptop className="w-5 h-5" />, description: "Tech industry sustainability" }
   ];
 
   const handleWhatsAppContact = () => {
@@ -195,26 +202,84 @@ const Services = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+      <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <img 
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80" 
+            alt="Environmental background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Globe className="w-4 h-4 mr-2" />
+              Global Industry Coverage
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Industries We Serve
+              Industries We Serve Worldwide
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our expertise spans across multiple industries, helping businesses of all sizes 
-              achieve their environmental goals.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              From small businesses to multinational corporations, we provide specialized environmental solutions 
+              across diverse industries in over 50 countries.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
             {industries.map((industry, index) => (
-              <span 
-                key={index} 
-                className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium hover:bg-green-200 transition-colors"
-              >
-                {industry}
-              </span>
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white hover:scale-105">
+                <CardContent className="p-6 text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-green-100 rounded-full group-hover:bg-green-200 transition-colors">
+                      {industry.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {industry.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {industry.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Why Global Companies Trust Us
+              </h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Our international expertise and local knowledge ensure compliance and sustainability across all markets.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-6 h-6 text-green-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">International Standards</h4>
+                <p className="text-sm text-gray-600">Compliance with ISO, LEED, and regional environmental regulations</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Local Expertise</h4>
+                <p className="text-sm text-gray-600">Native consultants who understand regional requirements</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-6 h-6 text-purple-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
+                <p className="text-sm text-gray-600">500+ successful projects across multiple continents</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
