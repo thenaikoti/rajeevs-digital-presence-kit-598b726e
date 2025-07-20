@@ -405,7 +405,7 @@ const Services = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-green-600 px-10 py-4 text-xl font-bold"
+                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-green-600 px-10 py-4 text-xl font-bold"
                 onClick={() => window.location.href = '/contact'}
               >
                 Contact Us
