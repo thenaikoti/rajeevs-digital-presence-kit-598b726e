@@ -11,7 +11,7 @@ const Header = () => {
     name: 'About',
     href: '/about'
   }, {
-    name: 'Services',
+    name: 'Environmental Services',
     href: '/services'
   }, {
     name: 'IPR Services',
