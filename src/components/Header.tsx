@@ -14,6 +14,9 @@ const Header = () => {
     name: 'Services',
     href: '/services'
   }, {
+    name: 'IPR Services',
+    href: '/ipr-services'
+  }, {
     name: 'Contact',
     href: '/contact'
   }];
