@@ -21,7 +21,7 @@ const Header = () => {
     href: '/contact'
   }];
   const isActive = (path: string) => location.pathname === path;
-  return <header className="bg-white shadow-md sticky top-0 z-50">
+  return <header className="bg-background/95 backdrop-blur-sm shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}

@@ -39,6 +39,17 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
+    /* Custom IPR consultancy colors */
+    --brand-green: 142 76% 36%;
+    --brand-green-foreground: 210 40% 98%;
+    --brand-blue: 218 54% 20%;
+    --brand-blue-foreground: 210 40% 98%;
+    --footer-dark: 220 13% 10%;
+    
+    /* Enhanced shadows and effects */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.1);
+    --shadow-hover: 0 20px 40px -10px hsl(var(--primary) / 0.15);
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -79,6 +90,13 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    
+    /* Dark mode custom colors */
+    --brand-green: 142 76% 40%;
+    --brand-green-foreground: 210 40% 98%;
+    --brand-blue: 218 54% 25%;
+    --brand-blue-foreground: 210 40% 98%;
+    --footer-dark: 220 13% 8%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -98,5 +116,24 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer utilities {
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
   }
 }
