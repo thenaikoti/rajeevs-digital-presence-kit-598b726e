@@ -1,89 +1,198 @@
-
-import { Leaf, Shield, FileCheck, BarChart3, Globe, Building, Users, Scale, BookOpen, ArrowRight, Phone, CheckCircle, Star, MapPin, Clock, Award, TrendingUp, Factory, Zap, Hammer, Home, Stethoscope, Laptop, TreePine, Wrench } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { 
+  FileCheck, Shield, Scale, BarChart3, Globe, Building, Users, BookOpen, 
+  TreePine, Factory, Laptop, FlaskConical, GraduationCap, Zap,
+  CheckCircle, Star, ArrowRight, Phone, Mail, MessageCircle,
+  Target, Search, FileText, Eye, Headphones
+} from 'lucide-react';
 import Layout from '../components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import { Badge } from '../components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
+import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
+import WhatsAppButton from '../components/WhatsAppButton';
+
+// Testimonial images imports
+import testimonialSarah from '../assets/testimonial-sarah.jpg';
+import testimonialMichael from '../assets/testimonial-michael.jpg';
+import testimonialAmanda from '../assets/testimonial-amanda.jpg';
 
 const Services = () => {
   const services = [
     {
-      icon: <FileCheck className="w-8 h-8 text-green-600" />,
+      icon: <FileCheck className="w-8 h-8 text-primary" />,
       title: "Environmental Impact Assessment (EIA) Reports",
-      description: "Get a clear picture of your project's environmental footprint. We conduct comprehensive studies, prepare detailed EIA reports, and guide you through the approval process to ensure both compliance and sustainability.",
-      features: ["Comprehensive impact studies", "Detailed reporting", "Approval guidance", "Compliance assurance"]
+      description: "Identify and manage the environmental consequences of your projects before they start. We conduct detailed EIA studies and deliver actionable reports that ensure your projects align with regulatory requirements and best sustainability practices.",
+      features: ["Comprehensive impact studies", "Regulatory compliance", "Risk mitigation", "Stakeholder consultation"]
     },
     {
-      icon: <Shield className="w-8 h-8 text-green-600" />,
+      icon: <Shield className="w-8 h-8 text-primary" />,
       title: "Environmental Clearance Reports",
-      description: "We simplify the clearance process—helping you assess project impacts, address key concerns, and obtain timely approvals from authorities so your projects never lose momentum.",
-      features: ["Fast-track approvals", "Impact assessment", "Authority liaison", "Timeline management"]
+      description: "Navigate complex environmental clearance processes with ease. Our team assists you at every stage—from impact assessment to final appraisal—helping your projects obtain timely approvals and minimize environmental risks.",
+      features: ["Fast-track approvals", "Authority liaison", "Documentation support", "Timeline management"]
     },
     {
-      icon: <Scale className="w-8 h-8 text-green-600" />,
+      icon: <Scale className="w-8 h-8 text-primary" />,
       title: "Environmental Compliance Services",
-      description: "Stay protected and proactive. We help you meet every legal requirement—air and water quality, waste management, audits, permits, and more—so you can focus on growing your business, risk-free.",
-      features: ["Legal compliance", "Quality monitoring", "Permit management", "Risk mitigation"]
+      description: "Stay ahead of regulations and reduce risk. We provide expert guidance on air and water quality, waste management, audits, permits, and more—ensuring your operations always meet legal and sustainability standards.",
+      features: ["Legal compliance", "Quality monitoring", "Permit management", "Audit support"]
     },
     {
-      icon: <BarChart3 className="w-8 h-8 text-green-600" />,
+      icon: <BarChart3 className="w-8 h-8 text-primary" />,
       title: "Environmental & Social Due Diligence (ESDD)",
-      description: "Assess risks before you invest. Our ESDD services evaluate environmental and social factors, uncover potential liabilities, and highlight opportunities for positive impact.",
-      features: ["Risk assessment", "Investment protection", "Social impact analysis", "Opportunity identification"]
+      description: "Make informed decisions with confidence. Our ESDD services evaluate both environmental and social risks and opportunities for your investments or projects, supporting responsible business practices and long-term compliance.",
+      features: ["Risk assessment", "Investment protection", "Social impact analysis", "Due diligence reports"]
     },
     {
-      icon: <Globe className="w-8 h-8 text-green-600" />,
+      icon: <Globe className="w-8 h-8 text-primary" />,
       title: "Environmental Quality Mapping (EQM)",
-      description: "Leverage powerful insights with advanced GIS and analytics. We create spatial maps to monitor air, water, land use, and pollution—helping you make data-driven decisions.",
-      features: ["GIS mapping", "Data analytics", "Real-time monitoring", "Decision support"]
+      description: "See the bigger picture. We use advanced GIS and analytics to map environmental quality factors—air, water, land use, pollution—giving you valuable insights for planning, resource management, and policy making.",
+      features: ["GIS mapping", "Data analytics", "Real-time monitoring", "Spatial analysis"]
     },
     {
-      icon: <Leaf className="w-8 h-8 text-green-600" />,
+      icon: <TreePine className="w-8 h-8 text-primary" />,
       title: "Sustainability (ESG) Reporting",
-      description: "Earn the trust of customers and stakeholders. We help you track, measure, and communicate your performance on environmental, social, and governance metrics with world-class reporting.",
-      features: ["ESG metrics tracking", "Stakeholder reporting", "Performance measurement", "Transparency building"]
+      description: "Demonstrate your commitment to the planet, people, and progress. We help you measure, report, and communicate your environmental, social, and governance (ESG) metrics, building trust with stakeholders.",
+      features: ["ESG metrics", "Stakeholder reporting", "Performance tracking", "Transparency building"]
     },
     {
-      icon: <Building className="w-8 h-8 text-green-600" />,
+      icon: <Building className="w-8 h-8 text-primary" />,
       title: "Corporate Social Responsibility (CSR) Reporting",
-      description: "Share your positive impact. We design CSR reports that showcase your contributions to society and the environment, reinforcing your reputation as a responsible business.",
-      features: ["Impact documentation", "Reputation building", "Social contribution", "Stakeholder engagement"]
+      description: "Showcase your positive impact. Our CSR reporting services highlight your environmental, social, and economic contributions—aligning your organization with global best practices in sustainable development.",
+      features: ["Impact documentation", "Social contribution", "Reputation building", "Best practices alignment"]
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-green-600" />,
+      icon: <Scale className="w-8 h-8 text-primary" />,
       title: "Legal & Regulatory Compliance",
-      description: "Confidently navigate complex environmental laws. Our team offers practical guidance and ongoing support to help you avoid legal pitfalls and maintain your compliance status.",
+      description: "Navigate environmental laws and regulations confidently. We provide ongoing support to ensure your business remains protected and compliant, avoiding costly legal issues.",
       features: ["Legal guidance", "Regulatory updates", "Compliance monitoring", "Risk prevention"]
     },
     {
-      icon: <Users className="w-8 h-8 text-green-600" />,
+      icon: <BookOpen className="w-8 h-8 text-primary" />,
       title: "Knowledge Management",
-      description: "Empower your team. We develop and manage resources that keep your organization up-to-date on the latest environmental best practices and regulatory changes.",
+      description: "Keep your team informed and empowered. We create and maintain resources on environmental best practices, updates, and regulatory changes, supporting continuous improvement.",
       features: ["Team training", "Best practices", "Resource development", "Continuous learning"]
     }
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Completed", icon: <Award className="w-6 h-6" /> },
-    { number: "50+", label: "Countries Served", icon: <MapPin className="w-6 h-6" /> },
-    { number: "15+", label: "Years Experience", icon: <Clock className="w-6 h-6" /> },
-    { number: "98%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> }
+    { number: "500+", label: "Projects Completed", icon: <Target className="w-6 h-6" /> },
+    { number: "250+", label: "Satisfied Clients", icon: <CheckCircle className="w-6 h-6" /> },
+    { number: "98%", label: "Success Rate", icon: <Star className="w-6 h-6" /> },
+    { number: "24/7", label: "Support Available", icon: <Headphones className="w-6 h-6" /> }
+  ];
+
+  const processSteps = [
+    {
+      icon: <MessageCircle className="w-8 h-8" />,
+      title: "Initial Consultation",
+      description: "We begin with a comprehensive assessment of your environmental needs and project requirements."
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Strategic Planning",
+      description: "Our experts develop a customized environmental strategy tailored to your specific objectives."
+    },
+    {
+      icon: <Search className="w-8 h-8" />,
+      title: "Research & Analysis",
+      description: "We conduct thorough environmental assessments using advanced tools and methodologies."
+    },
+    {
+      icon: <FileText className="w-8 h-8" />,
+      title: "Implementation & Compliance",
+      description: "We implement solutions and ensure full compliance with all environmental regulations."
+    },
+    {
+      icon: <Eye className="w-8 h-8" />,
+      title: "Monitoring & Support",
+      description: "Ongoing monitoring and support to ensure continued compliance and environmental performance."
+    }
   ];
 
   const industries = [
-    { name: "Manufacturing", icon: <Factory className="w-5 h-5" />, description: "Industrial processes and compliance" },
-    { name: "Oil & Gas", icon: <Zap className="w-5 h-5" />, description: "Energy sector environmental solutions" },
-    { name: "Mining", icon: <Wrench className="w-5 h-5" />, description: "Sustainable extraction practices" },
-    { name: "Construction", icon: <Hammer className="w-5 h-5" />, description: "Building and infrastructure projects" },
-    { name: "Power & Energy", icon: <Zap className="w-5 h-5" />, description: "Renewable and traditional energy" },
-    { name: "Infrastructure", icon: <Building className="w-5 h-5" />, description: "Large-scale development projects" },
-    { name: "Real Estate", icon: <Home className="w-5 h-5" />, description: "Property development compliance" },
-    { name: "Agriculture", icon: <TreePine className="w-5 h-5" />, description: "Sustainable farming practices" },
-    { name: "Healthcare", icon: <Stethoscope className="w-5 h-5" />, description: "Medical facility compliance" },
-    { name: "Technology", icon: <Laptop className="w-5 h-5" />, description: "Tech industry sustainability" }
+    { 
+      name: "Environmental Technology", 
+      icon: <TreePine className="w-6 h-6" />, 
+      description: "Green tech solutions and environmental innovation"
+    },
+    { 
+      name: "Manufacturing", 
+      icon: <Factory className="w-6 h-6" />, 
+      description: "Industrial processes and compliance solutions"
+    },
+    { 
+      name: "Biotechnology", 
+      icon: <FlaskConical className="w-6 h-6" />, 
+      description: "Bio-tech environmental applications and research"
+    },
+    { 
+      name: "Research & Academia", 
+      icon: <GraduationCap className="w-6 h-6" />, 
+      description: "Academic research and educational institutions"
+    },
+    { 
+      name: "Energy & Power", 
+      icon: <Zap className="w-6 h-6" />, 
+      description: "Renewable energy and sustainable power solutions"
+    },
+    { 
+      name: "Information Technology", 
+      icon: <Laptop className="w-6 h-6" />, 
+      description: "IT infrastructure and sustainable technology practices"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "Environmental Director, GreenTech Solutions",
+      content: "EnviroAndIPR's environmental compliance services helped us achieve our sustainability goals while maintaining operational efficiency. Their expertise is unmatched.",
+      rating: 5,
+      image: testimonialSarah
+    },
+    {
+      name: "Michael Rodriguez",
+      role: "CEO, EcoManufacturing Inc.",
+      content: "The EIA reports and clearance support from EnviroAndIPR were instrumental in getting our project approved on time. Highly professional team.",
+      rating: 5,
+      image: testimonialMichael
+    },
+    {
+      name: "Amanda Foster",
+      role: "Sustainability Manager, CleanEnergy Corp",
+      content: "Outstanding ESG reporting services. They helped us communicate our environmental impact effectively to stakeholders and improved our sustainability ratings.",
+      rating: 5,
+      image: testimonialAmanda
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "What types of environmental projects do you handle?",
+      answer: "We handle a wide range of environmental projects including EIA reports, environmental clearances, compliance audits, sustainability reporting, and regulatory consulting across various industries."
+    },
+    {
+      question: "How long does the environmental clearance process take?",
+      answer: "The timeline varies depending on project complexity and regulatory requirements. Typically, environmental clearances can take 3-6 months, but we work to expedite the process wherever possible."
+    },
+    {
+      question: "Do you provide ongoing environmental compliance support?",
+      answer: "Yes, we offer comprehensive ongoing support including compliance monitoring, regulatory updates, periodic audits, and consultation services to ensure continuous environmental compliance."
+    },
+    {
+      question: "Can you help with ESG and sustainability reporting?",
+      answer: "Absolutely. We specialize in ESG reporting, sustainability assessments, and CSR documentation to help organizations communicate their environmental and social impact effectively."
+    },
+    {
+      question: "What industries do you serve?",
+      answer: "We serve diverse industries including manufacturing, energy, biotechnology, IT, research institutions, and many others. Our expertise spans across sectors requiring environmental compliance and sustainability solutions."
+    }
   ];
 
   const handleWhatsAppContact = () => {
-    const phoneNumber = "91XXXXXXXXXX";
+    const phoneNumber = "918919518016";
     const message = "Hello EnviroAndIPR! I'm interested in your environmental consultancy services. Can we discuss my requirements?";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -91,135 +200,92 @@ const Services = () => {
 
   return (
     <Layout>
-      {/* Hero Section with Background Image */}
-      <section className="relative py-20 bg-gradient-to-br from-green-50 to-blue-50 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1920&q=80" 
-            alt="Environmental landscape with deer and mountains" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center max-w-5xl">
-          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Leaf className="w-4 h-4 mr-2" />
-            Environmental Consultancy Services
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Make Sustainability Your
-            <span className="block text-green-600 mt-2">Competitive Advantage</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-4xl mx-auto">
-            At EnviroAndIPR, we believe progress and environmental responsibility go hand-in-hand. 
-            Our end-to-end environmental consultancy services help you unlock growth, stay fully compliant, 
-            and demonstrate your commitment to a greener tomorrow.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button
-              onClick={handleWhatsAppContact}
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Get Free Consultation
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-4 text-lg font-semibold"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Learn More
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
+      <Helmet>
+        <title>Environmental Consultancy Services | EnviroAndIPR</title>
+        <meta name="description" content="Drive sustainable progress with EnviroAndIPR's comprehensive environmental consultancy services. Expert EIA, compliance, sustainability reporting, and regulatory guidance." />
+        <meta name="keywords" content="environmental consultancy, EIA reports, environmental compliance, sustainability reporting, ESG, environmental clearance" />
+      </Helmet>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?auto=format&fit=crop&w=1920&q=80" 
-            alt="Green mountains landscape" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="p-3 bg-green-100 rounded-full text-green-600">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=1920&q=80" 
-            alt="Body of water surrounded by trees" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Complete Range of Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              From compliance to sustainability reporting, we provide comprehensive environmental solutions 
-              tailored to your industry and business needs.
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-brand-blue/10 via-background to-brand-green/5 py-16 md:py-20 px-4">
+        <div className="container mx-auto text-center">
+          <div className="max-w-5xl mx-auto">
+            <Badge variant="outline" className="mb-8 text-sm font-semibold border-brand-blue/30 text-brand-blue">
+              <TreePine className="w-4 h-4 mr-2" />
+              Environmental Consultancy Services
+            </Badge>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-brand-blue leading-tight">
+              Drive Sustainable Progress.
+              <span className="block text-primary mt-2">Ensure Environmental Compliance.</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
+              At EnviroAndIPR, we empower organizations, businesses, and institutions to meet their sustainability goals while staying fully compliant with environmental regulations. Our experienced team provides comprehensive environmental consultancy services that support responsible growth, protect ecosystems, and build public trust.
             </p>
-            <Button
-              onClick={handleWhatsAppContact}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3"
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              Discuss Your Requirements
-            </Button>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button
+                onClick={handleWhatsAppContact}
+                size="lg"
+                className="px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-elegant"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Get Free Consultation
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = '/contact'}
+              >
+                Contact Us
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Offerings */}
+      <section className="py-16 md:py-20 px-4 bg-background">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-blue">Our Environmental Service Offerings</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Comprehensive environmental solutions from compliance to sustainability reporting
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white group">
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 hover-scale">
                 <CardHeader className="pb-4">
                   <div className="flex items-start space-x-4 mb-4">
-                    <div className="p-3 bg-green-100 rounded-lg group-hover:bg-green-200 transition-colors">
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                       {service.icon}
                     </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
-                        {service.title}
-                      </CardTitle>
-                    </div>
+                    <CardTitle className="text-xl font-bold text-brand-blue leading-tight">
+                      {service.title}
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <CardDescription className="text-gray-600 leading-relaxed mb-4 text-base">
+                  <CardDescription className="text-muted-foreground leading-relaxed mb-6 text-base">
                     {service.description}
                   </CardDescription>
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{feature}</span>
+                      <div key={idx} className="flex items-center space-x-3">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
                       </div>
                     ))}
                   </div>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-green-600 text-green-600 hover:bg-green-50"
+                    className="w-full hover:scale-105 transition-all duration-300"
                     onClick={handleWhatsAppContact}
                   >
                     Get Quote
@@ -232,300 +298,237 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Banner Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-blue-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=1920&q=80" 
-            alt="River between mountains under white clouds" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Need Expert Environmental Guidance?
-            </h2>
-            <p className="text-xl text-green-100 mb-8 leading-relaxed">
-              Join 500+ satisfied clients worldwide who trust us for their environmental compliance and sustainability needs.
+      {/* Stats Section */}
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-brand-blue/10 to-brand-green/10">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Trusted by Organizations Worldwide</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Leading the way in environmental consulting with proven results
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                onClick={handleWhatsAppContact}
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 text-lg font-bold"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="mr-3">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.687"/>
-                </svg>
-                Start Your Project Today
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-bold"
-                onClick={() => window.location.href = '/contact'}
-              >
-                View Case Studies
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve */}
-      <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img 
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80" 
-            alt="Industrial landscape" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Globe className="w-4 h-4 mr-2" />
-              Global Industry Coverage
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Industries We Serve Worldwide
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              From small businesses to multinational corporations, we provide specialized environmental solutions 
-              across diverse industries in over 50 countries.
-            </p>
-            <Button
-              onClick={handleWhatsAppContact}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3"
-            >
-              Find Solutions for Your Industry
-            </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
-            {industries.map((industry, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white hover:scale-105">
-                <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-green-100 rounded-full group-hover:bg-green-200 transition-colors">
-                      {industry.icon}
-                    </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center group hover:scale-105 transition-all duration-300">
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 bg-primary/10 rounded-full text-primary group-hover:bg-primary/20 transition-colors">
+                    {stat.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
-                    {industry.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {industry.description}
-                  </p>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="text-4xl md:text-5xl font-bold text-brand-blue mb-2">{stat.number}</div>
+                <div className="text-muted-foreground font-medium">{stat.label}</div>
+              </div>
             ))}
-          </div>
-
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Why Global Companies Trust Us
-              </h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Our international expertise and local knowledge ensure compliance and sustainability across all markets.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-6 h-6 text-green-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">International Standards</h4>
-                <p className="text-sm text-gray-600">Compliance with ISO, LEED, and regional environmental regulations</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-blue-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Local Expertise</h4>
-                <p className="text-sm text-gray-600">Native consultants who understand regional requirements</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-6 h-6 text-purple-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
-                <p className="text-sm text-gray-600">500+ successful projects across multiple continents</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section with Image */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80" 
-            alt="Forest landscape with pine trees" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
-              Why Choose EnviroAndIPR?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 text-white">
-                <div className="flex items-center mb-4">
-                  <Award className="w-8 h-8 text-green-300 mr-4" />
-                  <h3 className="text-2xl font-bold">Proven Expertise</h3>
-                </div>
-                <p className="text-green-100 text-lg leading-relaxed">
-                  A team of experienced environmental professionals with a strong track record 
-                  across multiple industries and regulatory frameworks.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 text-white">
-                <div className="flex items-center mb-4">
-                  <TrendingUp className="w-8 h-8 text-blue-300 mr-4" />
-                  <h3 className="text-2xl font-bold">Integrated Approach</h3>
-                </div>
-                <p className="text-blue-100 text-lg leading-relaxed">
-                  From regulatory advice to implementation and reporting, we cover every step 
-                  of your environmental journey.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 text-white">
-                <div className="flex items-center mb-4">
-                  <Users className="w-8 h-8 text-green-300 mr-4" />
-                  <h3 className="text-2xl font-bold">Client-Centric</h3>
-                </div>
-                <p className="text-green-100 text-lg leading-relaxed">
-                  Customized solutions for corporates, governments, and academic institutions 
-                  worldwide, tailored to your specific needs.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 text-white">
-                <div className="flex items-center mb-4">
-                  <Star className="w-8 h-8 text-blue-300 mr-4" />
-                  <h3 className="text-2xl font-bold">Commitment to Excellence</h3>
-                </div>
-                <p className="text-blue-100 text-lg leading-relaxed">
-                  We don't just deliver reports—we partner in your long-term sustainability 
-                  and business success.
-                </p>
-              </div>
-            </div>
-            <div className="text-center">
-              <Button
-                onClick={handleWhatsAppContact}
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 text-lg font-bold"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Experience the Difference
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80" 
-            alt="Bird's eye view of green mountains" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Simple 4-Step Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              We make environmental consultancy straightforward and efficient
+      <section className="py-16 md:py-20 px-4 bg-background">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Our Proven Process</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A systematic approach to environmental consulting excellence
             </p>
-            <Button
-              onClick={handleWhatsAppContact}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3"
-            >
-              Start Your Journey
-            </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              { step: "1", title: "Consultation", desc: "We understand your needs and challenges" },
-              { step: "2", title: "Assessment", desc: "Detailed analysis and evaluation of your project" },
-              { step: "3", title: "Solution", desc: "Customized recommendations and implementation" },
-              { step: "4", title: "Support", desc: "Ongoing monitoring and compliance assistance" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  {item.step}
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              {processSteps.map((step, index) => (
+                <div key={index} className="text-center group">
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <div className="text-primary">
+                        {step.icon}
+                      </div>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center text-sm font-bold">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-brand-blue mb-3">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-16 md:py-20 px-4 bg-accent/20">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Industries We Serve</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Specialized environmental solutions across diverse sectors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {industries.map((industry, index) => (
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 hover-scale text-center">
+                <CardContent className="p-8">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-4 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
+                      <div className="text-primary">
+                        {industry.icon}
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-blue mb-3">{industry.name}</h3>
+                  <p className="text-muted-foreground">{industry.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-green-600 to-blue-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1920&q=80" 
-            alt="Sunlight through trees" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-              Ready to Build a Sustainable Future?
-            </h2>
-            <p className="text-xl md:text-2xl text-green-100 mb-10 leading-relaxed">
-              Let EnviroAndIPR guide your business toward compliance, resilience, and lasting impact. 
-              Join our global network of satisfied clients today.
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-20 px-4 bg-background">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">What Our Clients Say</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Real feedback from organizations we've helped achieve their environmental goals
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-              <Button
-                onClick={handleWhatsAppContact}
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-green-600 px-10 py-4 text-xl font-bold"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="mr-3">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.687"/>
-                </svg>
-                Get Free Assessment
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-green-600 px-10 py-4 text-xl font-bold"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Schedule Consultation
-                <ArrowRight className="w-6 h-6 ml-3" />
-              </Button>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 inline-block">
-              <p className="text-green-100 text-lg mb-2">
-                <strong>Free 30-minute consultation</strong>
-              </p>
-              <p className="text-green-200 text-sm">
-                No obligation • Expert guidance • Tailored solutions
-              </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:scale-105">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <Avatar className="h-12 w-12 mr-4">
+                      <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                      <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h4 className="font-bold text-brand-blue">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed italic">"{testimonial.content}"</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 md:py-20 px-4 bg-accent/10">
+        <div className="container mx-auto">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-brand-blue">Why Choose EnviroAndIPR?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-lg text-muted-foreground"><strong className="text-brand-blue">Decades of experience</strong> in environmental consulting and research</p>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-lg text-muted-foreground"><strong className="text-brand-blue">Integrated, end-to-end solutions</strong> from compliance to knowledge transfer</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-lg text-muted-foreground"><strong className="text-brand-blue">Trusted by corporates, government agencies,</strong> and academic institutions</p>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-lg text-muted-foreground"><strong className="text-brand-blue">Commitment to sustainability, transparency,</strong> and measurable results</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 px-4 bg-background">
+        <div className="container mx-auto">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Frequently Asked Questions</h2>
+              <p className="text-xl text-muted-foreground">
+                Common questions about our environmental consultancy services
+              </p>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6">
+                  <AccordionTrigger className="text-left text-lg font-semibold text-brand-blue hover:text-primary">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-4">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            <div className="text-center mt-12">
+              <Button
+                onClick={handleWhatsAppContact}
+                size="lg"
+                className="px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Ask a Question
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 px-4 bg-footer-dark">
+        <div className="container mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-white">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">
+              Ready to Start Your Environmental Project?
+            </h2>
+            <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed">
+              Join hundreds of organizations worldwide who trust EnviroAndIPR for their environmental consulting needs. 
+              Let's discuss how we can help you achieve compliance and sustainability goals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button
+                onClick={handleWhatsAppContact}
+                size="lg"
+                variant="secondary"
+                className="px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Get Free Consultation
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-4 text-lg font-semibold border-white text-white hover:bg-white hover:text-footer-dark hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = '/contact'}
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Send Email
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <WhatsAppButton />
     </Layout>
   );
 };
