@@ -170,7 +170,7 @@ const IPRServices = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-blue/10 via-background to-brand-green/5 py-24 md:py-32 px-4">
+      <section className="relative bg-gradient-to-br from-brand-blue/10 via-background to-brand-green/5 py-16 md:py-20 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-5xl mx-auto">
             <Badge variant="outline" className="mb-8 text-sm font-semibold border-brand-blue/30 text-brand-blue">
@@ -202,7 +202,7 @@ const IPRServices = () => {
       </section>
 
       {/* Service Offerings */}
-      <section className="py-24 md:py-32 px-4 bg-background">
+      <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-blue">Our IPR Service Offerings</h2>
@@ -242,7 +242,7 @@ const IPRServices = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 md:py-32 px-4 bg-gradient-to-r from-brand-blue/10 to-brand-green/10">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-brand-blue/10 to-brand-green/10">
         <div className="container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Trusted by Innovators Worldwide</h2>
@@ -265,7 +265,7 @@ const IPRServices = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 md:py-32 px-4 bg-background">
+      <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Our Proven Process</h2>
@@ -300,7 +300,7 @@ const IPRServices = () => {
       </section>
 
       {/* Industries Section */}
-      <section className="py-24 md:py-32 px-4 bg-accent/20">
+      <section className="py-16 md:py-20 px-4 bg-accent/20">
         <div className="container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Industries We Serve</h2>
@@ -327,7 +327,7 @@ const IPRServices = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 md:py-32 px-4 bg-background">
+      <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">What Our Clients Say</h2>
@@ -363,7 +363,7 @@ const IPRServices = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 md:py-32 px-4 bg-accent/10">
+      <section className="py-16 md:py-20 px-4 bg-accent/10">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-16 text-brand-blue">Why Choose EnviroAndIPR?</h2>
@@ -380,7 +380,7 @@ const IPRServices = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 md:py-32 px-4 bg-background">
+      <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-20">
@@ -433,7 +433,7 @@ const IPRServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 px-4 bg-footer-dark">
+      <section className="py-16 md:py-20 px-4 bg-footer-dark">
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto text-white">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
