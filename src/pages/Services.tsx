@@ -3,7 +3,7 @@ import {
   FileCheck, Shield, Scale, BarChart3, Globe, Building, Users, BookOpen, 
   TreePine, Factory, Laptop, FlaskConical, GraduationCap, Zap,
   CheckCircle, Star, ArrowRight, Phone, Mail, MessageCircle,
-  Target, Search, FileText, Eye, Headphones
+  Target, Search, FileText, Eye, Headphones, Lightbulb, Award, TrendingUp
 } from 'lucide-react';
 import Layout from '../components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -19,7 +19,7 @@ import testimonialMichael from '../assets/testimonial-michael.jpg';
 import testimonialAmanda from '../assets/testimonial-amanda.jpg';
 
 const Services = () => {
-  const services = [
+  const environmentalServices = [
     {
       icon: <FileCheck className="w-8 h-8 text-primary" />,
       title: "Environmental Impact Assessment (EIA) Reports",
@@ -55,24 +55,33 @@ const Services = () => {
       title: "Sustainability (ESG) Reporting",
       description: "Demonstrate your commitment to the planet, people, and progress. We help you measure, report, and communicate your environmental, social, and governance (ESG) metrics, building trust with stakeholders.",
       features: ["ESG metrics", "Stakeholder reporting", "Performance tracking", "Transparency building"]
+    }
+  ];
+
+  const iprServices = [
+    {
+      icon: <Search className="w-8 h-8 text-brand-blue" />,
+      title: "Patent Search & Analytics",
+      description: "Comprehensive patent research and analysis services including patentability searches, validity analysis, infringement searches, and freedom to operate assessments.",
+      features: ["Novelty search", "Validity analysis", "Infringement search", "FTO analysis"]
     },
     {
-      icon: <Building className="w-8 h-8 text-primary" />,
-      title: "Corporate Social Responsibility (CSR) Reporting",
-      description: "Showcase your positive impact. Our CSR reporting services highlight your environmental, social, and economic contributions—aligning your organization with global best practices in sustainable development.",
-      features: ["Impact documentation", "Social contribution", "Reputation building", "Best practices alignment"]
+      icon: <FileText className="w-8 h-8 text-brand-blue" />,
+      title: "Patent Drafting & Filing",
+      description: "Professional patent application services from technical specifications to legal claims and drawings, ensuring robust applications that withstand scrutiny.",
+      features: ["Complete applications", "Technical drafting", "Legal claims", "Professional drawings"]
     },
     {
-      icon: <Scale className="w-8 h-8 text-primary" />,
-      title: "Legal & Regulatory Compliance",
-      description: "Navigate environmental laws and regulations confidently. We provide ongoing support to ensure your business remains protected and compliant, avoiding costly legal issues.",
-      features: ["Legal guidance", "Regulatory updates", "Compliance monitoring", "Risk prevention"]
+      icon: <BarChart3 className="w-8 h-8 text-brand-blue" />,
+      title: "Strategic IP Intelligence",
+      description: "Business intelligence for intellectual property including landscape analysis, competitor analysis, and technology assessments to guide strategic decisions.",
+      features: ["Landscape analysis", "Competitor intelligence", "Portfolio analysis", "White-space assessment"]
     },
     {
-      icon: <BookOpen className="w-8 h-8 text-primary" />,
-      title: "Knowledge Management",
-      description: "Keep your team informed and empowered. We create and maintain resources on environmental best practices, updates, and regulatory changes, supporting continuous improvement.",
-      features: ["Team training", "Best practices", "Resource development", "Continuous learning"]
+      icon: <Shield className="w-8 h-8 text-brand-blue" />,
+      title: "IP Portfolio Management",
+      description: "Comprehensive management of your intellectual property portfolio to maximize value and ensure optimal protection across jurisdictions.",
+      features: ["Portfolio strategy", "Global filing", "Renewal management", "Licensing support"]
     }
   ];
 
@@ -201,9 +210,9 @@ const Services = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Environmental Consultancy Services | EnviroAndIPR</title>
-        <meta name="description" content="Drive sustainable progress with EnviroAndIPR's comprehensive environmental consultancy services. Expert EIA, compliance, sustainability reporting, and regulatory guidance." />
-        <meta name="keywords" content="environmental consultancy, EIA reports, environmental compliance, sustainability reporting, ESG, environmental clearance" />
+        <title>Environmental & IPR Services | EnviroAndIPR</title>
+        <meta name="description" content="Comprehensive environmental consultancy and intellectual property services. Expert EIA, compliance, patent filing, IP strategy, and sustainability solutions." />
+        <meta name="keywords" content="environmental consultancy, IPR services, patent filing, EIA reports, environmental compliance, intellectual property, sustainability reporting" />
       </Helmet>
 
       {/* Hero Section */}
@@ -212,16 +221,16 @@ const Services = () => {
           <div className="max-w-5xl mx-auto">
             <Badge variant="outline" className="mb-8 text-sm font-semibold border-brand-blue/30 text-brand-blue">
               <TreePine className="w-4 h-4 mr-2" />
-              Environmental Consultancy Services
+              Environmental & IPR Services
             </Badge>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-brand-blue leading-tight">
-              Drive Sustainable Progress.
-              <span className="block text-primary mt-2">Ensure Environmental Compliance.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-brand-blue via-primary to-brand-green bg-clip-text text-transparent leading-tight">
+              Drive Innovation. Protect the Planet.
+              <span className="block mt-2">Secure Your Future.</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
-              At EnviroAndIPR, we empower organizations, businesses, and institutions to meet their sustainability goals while staying fully compliant with environmental regulations. Our experienced team provides comprehensive environmental consultancy services that support responsible growth, protect ecosystems, and build public trust.
+              At EnviroAndIPR, we provide comprehensive solutions for both environmental compliance and intellectual property protection. Our integrated approach helps organizations innovate responsibly while safeguarding their innovations and meeting sustainability goals.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -247,25 +256,25 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Service Offerings */}
+      {/* Environmental Services */}
       <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-blue">Our Environmental Service Offerings</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-green">Environmental Consultancy Services</h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Comprehensive environmental solutions from compliance to sustainability reporting
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {services.map((service, index) => (
+            {environmentalServices.map((service, index) => (
               <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 hover-scale">
                 <CardHeader className="pb-4">
                   <div className="flex items-start space-x-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <div className="p-3 bg-brand-green/10 rounded-lg group-hover:bg-brand-green/20 transition-colors">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-xl font-bold text-brand-blue leading-tight">
+                    <CardTitle className="text-xl font-bold text-brand-green leading-tight">
                       {service.title}
                     </CardTitle>
                   </div>
@@ -277,7 +286,7 @@ const Services = () => {
                   <div className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-3">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-brand-green flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
                       </div>
                     ))}
@@ -285,10 +294,61 @@ const Services = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full hover:scale-105 transition-all duration-300"
+                    className="w-full hover:scale-105 transition-all duration-300 border-brand-green text-brand-green hover:bg-brand-green hover:text-brand-green-foreground"
                     onClick={handleWhatsAppContact}
                   >
                     Get Quote
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* IPR Services */}
+      <section className="py-16 md:py-20 px-4 bg-accent/20">
+        <div className="container mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-blue">Intellectual Property Rights Services</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Expert patent services and IP strategy to protect and maximize your innovations
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {iprServices.map((service, index) => (
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:scale-105 hover-scale">
+                <CardHeader className="pb-4">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="p-4 bg-brand-blue/10 rounded-xl group-hover:bg-brand-blue/20 transition-colors mb-4">
+                      {service.icon}
+                    </div>
+                    <CardTitle className="text-xl font-bold text-brand-blue leading-tight">
+                      {service.title}
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-muted-foreground leading-relaxed mb-6 text-base text-center">
+                    {service.description}
+                  </CardDescription>
+                  <div className="space-y-3 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-3">
+                        <CheckCircle className="w-4 h-4 text-brand-blue flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full hover:scale-105 transition-all duration-300 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-brand-blue-foreground"
+                    onClick={handleWhatsAppContact}
+                  >
+                    Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
