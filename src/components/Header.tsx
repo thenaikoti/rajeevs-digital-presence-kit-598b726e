@@ -11,8 +11,11 @@ const Header = () => {
     name: 'About',
     href: '/about'
   }, {
-    name: 'Environmental Services',
+    name: 'All Services',
     href: '/services'
+  }, {
+    name: 'Environmental Services',
+    href: '/environmental-services'
   }, {
     name: 'IPR Services',
     href: '/ipr-services'
