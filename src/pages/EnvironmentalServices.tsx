@@ -13,196 +13,181 @@ import testimonialAmanda from '@/assets/testimonial-amanda.jpg';
 import environmentalHeroIllustration from '@/assets/environmental-hero-illustration.jpg';
 import processIllustration from '@/assets/process-illustration.jpg';
 import ctaIllustration from '@/assets/cta-illustration.jpg';
-
 const EnvironmentalServices = () => {
-  const services = [
-    {
-      title: "EIA Reports",
-      icon: FileCheck,
-      description: "Comprehensive environmental impact analysis for project compliance."
-    },
-    {
-      title: "Environmental Clearance",
-      icon: Shield,
-      description: "Expert guidance through clearance processes and approvals."
-    },
-    {
-      title: "Compliance Services",
-      icon: Scale,
-      description: "Ensure full regulatory compliance and legal requirements."
-    },
-    {
-      title: "ESDD",
-      icon: Search,
-      description: "Environmental & Social Due Diligence for investments."
-    },
-    {
-      title: "EQM",
-      icon: Globe,
-      description: "Environmental Quality Mapping using advanced GIS analytics."
-    },
-    {
-      title: "ESG Reporting",
-      icon: BarChart3,
-      description: "Comprehensive sustainability and ESG performance reporting."
-    },
-    {
-      title: "CSR Reporting",
-      icon: TreePine,
-      description: "Corporate Social Responsibility impact documentation."
-    },
-    {
-      title: "Legal Compliance",
-      icon: BookOpen,
-      description: "Navigate environmental regulations and legal frameworks."
-    },
-    {
-      title: "Knowledge Management",
-      icon: Target,
-      description: "Environmental data organization and strategic insights."
-    },
-    {
-      title: "Teaching & Research",
-      icon: GraduationCap,
-      description: "Environmental education, training, and research support."
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: Award,
-      title: "Expert Consulting",
-      description: "Decades of experience in environmental science and regulations"
-    },
-    {
-      icon: CheckCircle,
-      title: "End-to-End Solutions",
-      description: "Complete environmental services from assessment to compliance"
-    },
-    {
-      icon: Shield,
-      title: "Trusted Partner",
-      description: "Relied upon by corporates, government, and academia"
-    },
-    {
-      icon: TrendingUp,
-      title: "Measurable Results",
-      description: "Sustainability outcomes with transparency and accountability"
-    }
-  ];
-
-  const stats = [
-    { number: "500+", label: "Projects Completed", icon: FileText },
-    { number: "250+", label: "Satisfied Clients", icon: Users },
-    { number: "98%", label: "Success Rate", icon: Target },
-    { number: "24/7", label: "Support Available", icon: Clock }
-  ];
-
-  const process = [
-    {
-      step: 1,
-      title: "Initial Consultation",
-      description: "Assess environmental needs and project requirements",
-      icon: MessageCircle
-    },
-    {
-      step: 2,
-      title: "Strategic Planning",
-      description: "Develop customized environmental strategy",
-      icon: Target
-    },
-    {
-      step: 3,
-      title: "Research & Analysis",
-      description: "Thorough assessments using advanced methodologies",
-      icon: Search
-    },
-    {
-      step: 4,
-      title: "Implementation",
-      description: "Execute solutions and ensure regulatory compliance",
-      icon: Shield
-    },
-    {
-      step: 5,
-      title: "Monitoring & Support",
-      description: "Ongoing monitoring for continued compliance",
-      icon: TrendingUp
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Dr. Sarah Chen",
-      company: "GreenTech Solutions",
-      role: "Environmental Director",
-      content: "EnviroAndIPR's compliance services helped us achieve sustainability goals while maintaining efficiency. Exceptional expertise.",
-      rating: 5,
-      image: testimonialSarah
-    },
-    {
-      name: "Michael Rodriguez",
-      company: "EcoManufacturing Inc.",
-      role: "CEO",
-      content: "The EIA reports and clearance support were instrumental in getting our project approved on time. Outstanding service.",
-      rating: 5,
-      image: testimonialMichael
-    },
-    {
-      name: "Prof. Amanda Foster",
-      company: "Sustainability Institute",
-      role: "Research Director",
-      content: "Outstanding ESG reporting services. They improved our sustainability performance and communication significantly.",
-      rating: 5,
-      image: testimonialAmanda
-    }
-  ];
-
-  const industries = [
-    { name: "Environmental Technology", icon: TreePine, description: "Clean energy, waste management, pollution control" },
-    { name: "Energy & Power", icon: Zap, description: "Renewable energy, sustainable power solutions" },
-    { name: "Biotechnology", icon: FlaskConical, description: "Bio-tech environmental applications, compliance" },
-    { name: "Manufacturing", icon: Factory, description: "Industrial processes, environmental compliance" },
-    { name: "Information Technology", icon: Laptop, description: "IT infrastructure, sustainable technology practices" },
-    { name: "Research & Academia", icon: GraduationCap, description: "Universities, research institutions, studies" }
-  ];
-
-  const faqs = [
-    {
-      question: "How long does EIA reporting take?",
-      answer: "EIA preparation typically takes 4-8 weeks depending on project complexity, followed by regulatory review periods that vary by jurisdiction and project scale."
-    },
-    {
-      question: "What is Environmental Clearance process?",
-      answer: "EC involves detailed environmental impact assessment, public consultation, and regulatory approval. We guide you through each stage from application to approval."
-    },
-    {
-      question: "Do you help with ESG reporting standards?",
-      answer: "Yes, we assist with various ESG frameworks including GRI, SASB, TCFD, and custom reporting aligned with stakeholder requirements and industry standards."
-    },
-    {
-      question: "What compliance services do you offer?",
-      answer: "We provide comprehensive compliance support including regulatory assessments, permit applications, monitoring programs, and ongoing compliance management."
-    },
-    {
-      question: "Can you support CSR initiatives?",
-      answer: "Absolutely. We help develop, implement, and report on CSR programs that align with business objectives and community needs while meeting regulatory requirements."
-    },
-    {
-      question: "Do you provide environmental training?",
-      answer: "Yes, we offer specialized training programs, workshops, and courses for environmental professionals, covering topics from pollution control to ESG implementation."
-    }
-  ];
-
+  const services = [{
+    title: "EIA Reports",
+    icon: FileCheck,
+    description: "Comprehensive environmental impact analysis for project compliance."
+  }, {
+    title: "Environmental Clearance",
+    icon: Shield,
+    description: "Expert guidance through clearance processes and approvals."
+  }, {
+    title: "Compliance Services",
+    icon: Scale,
+    description: "Ensure full regulatory compliance and legal requirements."
+  }, {
+    title: "ESDD",
+    icon: Search,
+    description: "Environmental & Social Due Diligence for investments."
+  }, {
+    title: "EQM",
+    icon: Globe,
+    description: "Environmental Quality Mapping using advanced GIS analytics."
+  }, {
+    title: "ESG Reporting",
+    icon: BarChart3,
+    description: "Comprehensive sustainability and ESG performance reporting."
+  }, {
+    title: "CSR Reporting",
+    icon: TreePine,
+    description: "Corporate Social Responsibility impact documentation."
+  }, {
+    title: "Legal Compliance",
+    icon: BookOpen,
+    description: "Navigate environmental regulations and legal frameworks."
+  }, {
+    title: "Knowledge Management",
+    icon: Target,
+    description: "Environmental data organization and strategic insights."
+  }, {
+    title: "Teaching & Research",
+    icon: GraduationCap,
+    description: "Environmental education, training, and research support."
+  }];
+  const benefits = [{
+    icon: Award,
+    title: "Expert Consulting",
+    description: "Decades of experience in environmental science and regulations"
+  }, {
+    icon: CheckCircle,
+    title: "End-to-End Solutions",
+    description: "Complete environmental services from assessment to compliance"
+  }, {
+    icon: Shield,
+    title: "Trusted Partner",
+    description: "Relied upon by corporates, government, and academia"
+  }, {
+    icon: TrendingUp,
+    title: "Measurable Results",
+    description: "Sustainability outcomes with transparency and accountability"
+  }];
+  const stats = [{
+    number: "500+",
+    label: "Projects Completed",
+    icon: FileText
+  }, {
+    number: "250+",
+    label: "Satisfied Clients",
+    icon: Users
+  }, {
+    number: "98%",
+    label: "Success Rate",
+    icon: Target
+  }, {
+    number: "24/7",
+    label: "Support Available",
+    icon: Clock
+  }];
+  const process = [{
+    step: 1,
+    title: "Initial Consultation",
+    description: "Assess environmental needs and project requirements",
+    icon: MessageCircle
+  }, {
+    step: 2,
+    title: "Strategic Planning",
+    description: "Develop customized environmental strategy",
+    icon: Target
+  }, {
+    step: 3,
+    title: "Research & Analysis",
+    description: "Thorough assessments using advanced methodologies",
+    icon: Search
+  }, {
+    step: 4,
+    title: "Implementation",
+    description: "Execute solutions and ensure regulatory compliance",
+    icon: Shield
+  }, {
+    step: 5,
+    title: "Monitoring & Support",
+    description: "Ongoing monitoring for continued compliance",
+    icon: TrendingUp
+  }];
+  const testimonials = [{
+    name: "Dr. Sarah Chen",
+    company: "GreenTech Solutions",
+    role: "Environmental Director",
+    content: "EnviroAndIPR's compliance services helped us achieve sustainability goals while maintaining efficiency. Exceptional expertise.",
+    rating: 5,
+    image: testimonialSarah
+  }, {
+    name: "Michael Rodriguez",
+    company: "EcoManufacturing Inc.",
+    role: "CEO",
+    content: "The EIA reports and clearance support were instrumental in getting our project approved on time. Outstanding service.",
+    rating: 5,
+    image: testimonialMichael
+  }, {
+    name: "Prof. Amanda Foster",
+    company: "Sustainability Institute",
+    role: "Research Director",
+    content: "Outstanding ESG reporting services. They improved our sustainability performance and communication significantly.",
+    rating: 5,
+    image: testimonialAmanda
+  }];
+  const industries = [{
+    name: "Environmental Technology",
+    icon: TreePine,
+    description: "Clean energy, waste management, pollution control"
+  }, {
+    name: "Energy & Power",
+    icon: Zap,
+    description: "Renewable energy, sustainable power solutions"
+  }, {
+    name: "Biotechnology",
+    icon: FlaskConical,
+    description: "Bio-tech environmental applications, compliance"
+  }, {
+    name: "Manufacturing",
+    icon: Factory,
+    description: "Industrial processes, environmental compliance"
+  }, {
+    name: "Information Technology",
+    icon: Laptop,
+    description: "IT infrastructure, sustainable technology practices"
+  }, {
+    name: "Research & Academia",
+    icon: GraduationCap,
+    description: "Universities, research institutions, studies"
+  }];
+  const faqs = [{
+    question: "How long does EIA reporting take?",
+    answer: "EIA preparation typically takes 4-8 weeks depending on project complexity, followed by regulatory review periods that vary by jurisdiction and project scale."
+  }, {
+    question: "What is Environmental Clearance process?",
+    answer: "EC involves detailed environmental impact assessment, public consultation, and regulatory approval. We guide you through each stage from application to approval."
+  }, {
+    question: "Do you help with ESG reporting standards?",
+    answer: "Yes, we assist with various ESG frameworks including GRI, SASB, TCFD, and custom reporting aligned with stakeholder requirements and industry standards."
+  }, {
+    question: "What compliance services do you offer?",
+    answer: "We provide comprehensive compliance support including regulatory assessments, permit applications, monitoring programs, and ongoing compliance management."
+  }, {
+    question: "Can you support CSR initiatives?",
+    answer: "Absolutely. We help develop, implement, and report on CSR programs that align with business objectives and community needs while meeting regulatory requirements."
+  }, {
+    question: "Do you provide environmental training?",
+    answer: "Yes, we offer specialized training programs, workshops, and courses for environmental professionals, covering topics from pollution control to ESG implementation."
+  }];
   const handleWhatsAppClick = () => {
     const phoneNumber = "919195180016";
     const message = "Hi, I'm interested in your Environmental Consultancy services. I'd like to schedule a consultation to discuss my environmental compliance and sustainability needs.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
-
-  return (
-    <Layout>
+  return <Layout>
       <Helmet>
         <title>Environmental Consultancy Services - EIA, Compliance & Sustainability | EnviroAndIPR</title>
         <meta name="description" content="Expert environmental consultancy services including EIA reports, environmental clearance, compliance, sustainability reporting, and ESG consulting. Professional environmental solutions for businesses." />
@@ -241,11 +226,7 @@ const EnvironmentalServices = () => {
               </div>
             </div>
             <div className="relative">
-              <img 
-                src={environmentalHeroIllustration} 
-                alt="Environmental sustainability illustration" 
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
+              <img src={environmentalHeroIllustration} alt="Environmental sustainability illustration" className="w-full h-auto rounded-2xl shadow-xl" />
             </div>
           </div>
         </div>
@@ -262,8 +243,7 @@ const EnvironmentalServices = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
+            {services.map((service, index) => <Card key={index} className="group hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
                 <CardContent className="p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="p-4 bg-brand-green/10 rounded-xl group-hover:bg-brand-green/20 transition-all duration-300">
@@ -273,8 +253,7 @@ const EnvironmentalServices = () => {
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -287,8 +266,7 @@ const EnvironmentalServices = () => {
             <p className="text-lg text-muted-foreground">Our track record speaks for itself</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-background rounded-xl shadow-elegant hover-lift transition-all duration-300">
+            {stats.map((stat, index) => <div key={index} className="text-center p-6 bg-background rounded-xl shadow-elegant hover-lift transition-all duration-300">
                 <div className="flex justify-center mb-4">
                   <div className="p-3 bg-brand-green/10 rounded-xl">
                     <stat.icon className="w-8 h-8 text-brand-green" />
@@ -296,8 +274,7 @@ const EnvironmentalServices = () => {
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-brand-green mb-2">{stat.number}</div>
                 <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -315,16 +292,13 @@ const EnvironmentalServices = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-8">
-            {process.map((step, index) => (
-              <div key={index} className="text-center">
+            {process.map((step, index) => <div key={index} className="text-center">
                 <div className="flex justify-center mb-6">
                   <div className="relative">
                     <div className="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center text-brand-green-foreground font-bold text-xl shadow-lg hover-lift transition-all duration-300">
                       {step.step}
                     </div>
-                    {index < process.length - 1 && (
-                      <div className="hidden md:block absolute top-8 left-16 w-16 h-0.5 bg-brand-green/30"></div>
-                    )}
+                    {index < process.length - 1 && <div className="hidden md:block absolute top-8 left-16 w-16 h-0.5 bg-brand-green/30"></div>}
                   </div>
                 </div>
                 <div className="flex justify-center mb-4">
@@ -332,8 +306,7 @@ const EnvironmentalServices = () => {
                 </div>
                 <h3 className="font-bold mb-3 text-brand-green">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -348,8 +321,7 @@ const EnvironmentalServices = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry, index) => (
-              <Card key={index} className="hover-lift transition-all duration-300 group border-0 shadow-elegant hover:shadow-hover">
+            {industries.map((industry, index) => <Card key={index} className="hover-lift transition-all duration-300 group border-0 shadow-elegant hover:shadow-hover">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="p-3 bg-brand-green/10 rounded-xl group-hover:bg-brand-green/20 transition-all duration-300">
@@ -359,8 +331,7 @@ const EnvironmentalServices = () => {
                   </div>
                   <p className="text-muted-foreground text-sm">{industry.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -373,15 +344,10 @@ const EnvironmentalServices = () => {
             <p className="text-lg text-muted-foreground">Trusted by environmental leaders and sustainability champions</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
+            {testimonials.map((testimonial, index) => <Card key={index} className="hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
+                    <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover" />
                     <div>
                       <div className="font-bold text-brand-green">{testimonial.name}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.role}</div>
@@ -389,14 +355,11 @@ const EnvironmentalServices = () => {
                     </div>
                   </div>
                   <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                   </div>
                   <p className="text-muted-foreground italic text-sm leading-relaxed">"{testimonial.content}"</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -409,8 +372,7 @@ const EnvironmentalServices = () => {
             <p className="text-lg text-muted-foreground">Four key reasons organizations trust us with their environmental needs</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
+            {benefits.map((benefit, index) => <Card key={index} className="text-center hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">
                     <div className="p-4 bg-brand-green/10 rounded-xl">
@@ -420,8 +382,7 @@ const EnvironmentalServices = () => {
                   <h3 className="font-bold mb-3 text-brand-green">{benefit.title}</h3>
                   <p className="text-muted-foreground text-sm">{benefit.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -435,8 +396,7 @@ const EnvironmentalServices = () => {
           </div>
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg border-0 shadow-elegant">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg border-0 shadow-elegant">
                   <AccordionTrigger className="px-6 py-4 hover:no-underline">
                     <div className="flex items-center gap-3">
                       <HelpCircle className="w-5 h-5 text-brand-green" />
@@ -446,8 +406,7 @@ const EnvironmentalServices = () => {
                   <AccordionContent className="px-6 pb-4">
                     <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -471,7 +430,7 @@ const EnvironmentalServices = () => {
               Start WhatsApp Chat
             </Button>
             <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-brand-green hover-lift">
-              <a href="/contact">
+              <a href="/contact" className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 ">
                 <Mail className="w-5 h-5 mr-2" />
                 Contact Us
               </a>
@@ -481,8 +440,6 @@ const EnvironmentalServices = () => {
       </section>
 
       <WhatsAppButton />
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default EnvironmentalServices;
