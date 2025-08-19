@@ -68,13 +68,12 @@ export default {
 				},
 				'brand-green': {
 					DEFAULT: 'hsl(var(--brand-green))',
-					foreground: 'hsl(var(--brand-green-foreground))'
+					glow: 'hsl(var(--brand-green-glow))',
+					foreground: 'hsl(var(--primary-foreground))'
 				},
-				'brand-blue': {
-					DEFAULT: 'hsl(var(--brand-blue))',
-					foreground: 'hsl(var(--brand-blue-foreground))'
-				},
-				'footer-dark': 'hsl(var(--footer-dark))'
+				ink: 'hsl(var(--ink))',
+				text: 'hsl(var(--text))',
+				muted: 'hsl(var(--muted))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
