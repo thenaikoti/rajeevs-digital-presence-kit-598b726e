@@ -205,7 +205,7 @@ const EnvironmentalServices = () => {
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-brand-green leading-tight">
                 Drive Sustainable Progress. 
-                <span className="bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-slate-950">
                   Ensure Environmental Compliance.
                 </span>
               </h1>
