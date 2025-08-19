@@ -430,7 +430,7 @@ const EnvironmentalServices = () => {
               Start WhatsApp Chat
             </Button>
             <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-brand-green hover-lift">
-              <a href="/contact" className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 ">
+              <a href="/contact" className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105">
                 <Mail className="w-5 h-5 mr-2" />
                 Contact Us
               </a>
