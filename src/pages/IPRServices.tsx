@@ -480,7 +480,7 @@ const IPRServices = () => {
               <MessageCircle className="w-5 h-5 mr-2" />
               Start WhatsApp Chat
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-brand-green hover-lift">
+            <Button size="lg" variant="outline" asChild className="bg text-brand-green- text-white hover:bg-white hover:text-brand-green hover-lift">
               <a href="/contact">
                 <Mail className="w-5 h-5 mr-2" />
                 Contact Us
