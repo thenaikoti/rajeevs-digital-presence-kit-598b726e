@@ -1,4 +1,4 @@
-import { Shield, Search, FileText, BarChart3, CheckCircle, MessageCircle, Mail, ArrowRight, Users, Clock, Globe, Award, Lightbulb, Target, TrendingUp, BookOpen, Star } from 'lucide-react';
+import { Shield, Search, FileText, BarChart3, CheckCircle, MessageCircle, Mail, ArrowRight, Users, Clock, Globe, Award, Lightbulb, Target, TrendingUp, BookOpen, Star, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -18,11 +18,11 @@ const IPRServices = () => {
       description: "Comprehensive patent research and analysis services",
       subServices: [
         {
-          name: "Patentability (Novelty) Search",
+          name: "Patentability (Novelty / Prior Art) Search",
           description: "Assess the uniqueness of your invention before filing. We conduct comprehensive global searches to ensure your idea is eligible for patent protection."
         },
         {
-          name: "Patent Validity/Invalidity Search", 
+          name: "Patent Validity / Invalidity Search", 
           description: "Validate or challenge patents with exhaustive prior art research—crucial for defending your IP or contesting competitors' claims."
         },
         {
@@ -36,12 +36,12 @@ const IPRServices = () => {
       ]
     },
     {
-      title: "Patent Drafting & Filing",
+      title: "Patent Drafting & Preparation",
       icon: FileText,
       description: "Professional patent application services",
       subServices: [
         {
-          name: "Complete Patent Applications",
+          name: "Patent Drafting & Preparation",
           description: "Craft robust, compliant patent applications that withstand scrutiny. We manage the entire drafting process, from technical specs to legal claims and drawings."
         }
       ]
@@ -56,31 +56,58 @@ const IPRServices = () => {
           description: "Map the current landscape in your technology area to spot opportunities and direct R&D investments."
         },
         {
-          name: "Patent Landscape & Competitor Analysis",
+          name: "Patent Landscape Study",
           description: "Understand the IP strategies and portfolios of key players in your sector—identify gaps, threats, and growth opportunities."
+        },
+        {
+          name: "Competitor Analysis",
+          description: "Analyze competitor patent portfolios and strategies to identify market opportunities and potential threats."
         },
         {
           name: "Patent Portfolio Analysis",
           description: "Evaluate your existing patents to guide licensing, litigation, or new investment decisions."
         },
         {
-          name: "Technology & White-space Assessment",
+          name: "Technology Assessment",
           description: "Uncover innovation opportunities and market gaps—fueling smarter product development and business growth."
+        },
+        {
+          name: "White-space Analysis",
+          description: "Identify areas of low patent density where new innovation opportunities exist."
+        }
+      ]
+    },
+    {
+      title: "IP Education & Training",
+      icon: GraduationCap,
+      description: "Comprehensive intellectual property education services",
+      subServices: [
+        {
+          name: "Patent Agent Exam Preparation",
+          description: "Specialized coaching and preparation for patent agent examinations with expert guidance and proven methodologies."
+        },
+        {
+          name: "IP Workshops & Training",
+          description: "Corporate workshops and training sessions on intellectual property management, patent filing, and IP strategy."
+        },
+        {
+          name: "IP Courses",
+          description: "Comprehensive courses on intellectual property law, patent drafting, and IP commercialization for professionals and students."
         }
       ]
     }
   ];
 
   const benefits = [
-    "Unmatched expertise in patent research, strategy, and protection",
-    "In-depth knowledge of global IPR regulations and trends", 
-    "Confidential, business-oriented service trusted by clients worldwide",
-    "Actionable insights for innovators, startups, corporates, and academic institutions"
+    "Decades of experience in patent research, strategy, and protection",
+    "Business-oriented IP advisory that drives real commercial value",
+    "Confidential, trusted service for inventors, startups, corporates, and institutions",
+    "Actionable insights that transform IP into competitive advantage"
   ];
 
   const stats = [
-    { number: "500+", label: "Patents Filed", icon: FileText },
-    { number: "150+", label: "Satisfied Clients", icon: Users },
+    { number: "500+", label: "Projects Completed", icon: FileText },
+    { number: "200+", label: "Satisfied Clients", icon: Users },
     { number: "98%", label: "Success Rate", icon: Target },
     { number: "24/7", label: "Support Available", icon: Clock }
   ];
@@ -154,6 +181,52 @@ const IPRServices = () => {
     { name: "Startups & SMEs", icon: TrendingUp, description: "Emerging companies, innovation hubs, incubators" }
   ];
 
+  const faqs = [
+    {
+      category: "Patent Filing",
+      questions: [
+        {
+          question: "How long does the patent filing process take?",
+          answer: "The patent filing process typically takes 2-4 weeks for initial application preparation, followed by 18-36 months for examination by the patent office, depending on the jurisdiction and complexity of the invention."
+        },
+        {
+          question: "What is the cost of filing a patent?",
+          answer: "Patent filing costs vary based on the type of application, number of claims, and jurisdictions. We provide detailed cost estimates after initial consultation and can work within various budget ranges."
+        },
+        {
+          question: "Can I file patents internationally?",
+          answer: "Yes, we assist with international patent filing through PCT (Patent Cooperation Treaty) applications and direct national phase entries in multiple countries worldwide."
+        }
+      ]
+    },
+    {
+      category: "IP Strategy",
+      questions: [
+        {
+          question: "How do you develop an IP strategy for startups?",
+          answer: "We analyze your technology, market position, and business goals to create a tailored IP strategy that maximizes protection while optimizing costs and timeline for startup growth."
+        },
+        {
+          question: "What is a freedom to operate analysis?",
+          answer: "FTO analysis identifies existing patents that might block your product or service from entering the market, helping you navigate around potential infringement issues before launch."
+        }
+      ]
+    },
+    {
+      category: "Services",
+      questions: [
+        {
+          question: "Do you provide patent agent exam coaching?",
+          answer: "Yes, we offer comprehensive patent agent exam preparation including study materials, mock tests, and personalized coaching to help you pass the examination successfully."
+        },
+        {
+          question: "Can you help with patent portfolio management?",
+          answer: "Absolutely. We provide ongoing patent portfolio analysis, maintenance strategy, licensing guidance, and regular reviews to ensure your IP assets remain valuable and protected."
+        }
+      ]
+    }
+  ];
+
   const handleWhatsAppClick = () => {
     const phoneNumber = "919195180016";
     const message = "Hi, I'm interested in your IPR consultancy services. I'd like to schedule a consultation to discuss my intellectual property needs.";
@@ -181,9 +254,9 @@ const IPRServices = () => {
               Safeguard Your Ideas. Accelerate Your Growth.
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
-              At EnviroAndIPR, we help inventors, startups, research organizations, and businesses protect, 
-              manage, and maximize the value of their intellectual property. Our expert IPR consultancy 
-              ensures your innovations stay secure—and your business stays ahead.
+              At EnviroAndIPR, we help inventors, startups, enterprises, and research institutions protect, 
+              manage, and maximize the value of their intellectual property. From strategic searches to airtight 
+              drafting and training, we keep your innovation secure and your business ahead.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button size="lg" onClick={handleWhatsAppClick} className="bg-brand-green hover:bg-brand-green/90 text-brand-green-foreground text-lg px-8 py-4 hover-lift shadow-elegant">
@@ -362,19 +435,28 @@ const IPRServices = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16 md:py-20 px-4 bg-accent/10">
+      {/* Why Choose Section */}
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-brand-green/10 to-brand-blue/10">
         <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-brand-blue">Why Choose EnviroAndIPR?</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-4 p-8 bg-background rounded-2xl shadow-elegant hover-lift transition-all duration-300">
-                  <CheckCircle className="w-8 h-8 text-brand-green mt-1 flex-shrink-0" />
-                  <p className="text-left font-semibold text-lg leading-relaxed">{benefit}</p>
-                </div>
-              ))}
-            </div>
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Why Choose EnviroAndIPR?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Your trusted partner for comprehensive intellectual property solutions
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="hover-lift transition-all duration-300 group border-0 shadow-elegant hover:shadow-hover">
+                <CardContent className="p-8 text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 bg-brand-blue/10 rounded-2xl group-hover:bg-brand-blue/20 transition-all duration-300">
+                      <CheckCircle className="w-10 h-10 text-brand-blue" />
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed font-medium">{benefit}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -382,92 +464,63 @@ const IPRServices = () => {
       {/* FAQ Section */}
       <section className="py-16 md:py-20 px-4 bg-background">
         <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Frequently Asked Questions</h2>
-              <p className="text-xl text-muted-foreground">Get answers to common questions about our IPR services</p>
-            </div>
-            <Tabs defaultValue="general" className="w-full">
-              <TabsList className="grid grid-cols-3 w-full mb-8">
-                <TabsTrigger value="general">General</TabsTrigger>
-                <TabsTrigger value="process">Process</TabsTrigger>
-                <TabsTrigger value="pricing">Pricing</TabsTrigger>
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-brand-blue">Frequently Asked Questions</h2>
+            <p className="text-xl text-muted-foreground">Get answers to common questions about our IPR services</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Tabs defaultValue="Patent Filing" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 mb-12">
+                {faqs.map((category) => (
+                  <TabsTrigger key={category.category} value={category.category} className="text-lg">
+                    {category.category}
+                  </TabsTrigger>
+                ))}
               </TabsList>
-              <TabsContent value="general" className="space-y-8">
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">What types of patents can you help me file?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">We assist with utility patents, design patents, and provisional patent applications across all technology sectors including environmental technology, biotechnology, software, and manufacturing.</p>
-                </div>
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">How long does the patent process take?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">Patent prosecution typically takes 1-3 years depending on the complexity and jurisdiction. We provide regular updates throughout the process and work to expedite whenever possible.</p>
-                </div>
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">Do you work with international patents?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">Yes, we handle patent filings globally including PCT applications, direct national filings, and provide strategic advice on international IP portfolio management.</p>
-                </div>
-              </TabsContent>
-              <TabsContent value="process" className="space-y-8">
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">What information do I need to provide for a patent search?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">We need a detailed description of your invention, its technical specifications, intended use, and any existing prior art you're aware of. The more detailed the information, the more comprehensive our search will be.</p>
-                </div>
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">How do you ensure confidentiality?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">All client information is protected under strict confidentiality agreements. Our team follows rigorous security protocols and we can provide additional NDAs if required.</p>
-                </div>
-              </TabsContent>
-              <TabsContent value="pricing" className="space-y-8">
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">What are your consultation fees?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">Initial consultations are complimentary. We provide transparent pricing for all services with detailed quotes based on your specific requirements and scope of work.</p>
-                </div>
-                <div className="bg-accent/20 p-8 rounded-2xl hover-lift transition-all duration-300">
-                  <h3 className="font-bold mb-3 text-xl text-brand-blue">Do you offer package deals for multiple services?</h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">Yes, we offer comprehensive IP package solutions that combine search, filing, and portfolio management services at competitive rates for long-term partnerships.</p>
-                </div>
-              </TabsContent>
+              {faqs.map((category) => (
+                <TabsContent key={category.category} value={category.category} className="space-y-6">
+                  {category.questions.map((faq, index) => (
+                    <Card key={index} className="hover-lift transition-all duration-300 border-0 shadow-elegant">
+                      <CardContent className="p-8">
+                        <h3 className="font-bold text-xl mb-4 text-brand-blue">{faq.question}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </TabsContent>
+              ))}
             </Tabs>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-footer-dark">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-brand-blue to-brand-green">
         <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto text-white">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-brand-blue-foreground">
               Ready to Secure Your Next Big Idea?
             </h2>
-            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">
-              Partner with EnviroAndIPR and protect your intellectual property with confidence. 
-              Contact us for a confidential consultation today.
+            <p className="text-xl md:text-2xl text-brand-blue-foreground/90 mb-12 leading-relaxed">
+              Let our IP experts help you protect your innovations and accelerate your business growth. 
+              Get started with a free consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button 
-                size="lg" 
-                onClick={handleWhatsAppClick}
-                className="bg-brand-green hover:bg-brand-green/90 text-brand-green-foreground text-xl px-10 py-6 hover-lift shadow-elegant"
-              >
+              <Button size="lg" onClick={handleWhatsAppClick} className="bg-background text-brand-blue hover:bg-background/90 text-lg px-8 py-4 hover-lift shadow-elegant">
                 <MessageCircle className="w-6 h-6 mr-3" />
-                Enquire on WhatsApp
+                Start Free Consultation
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                asChild
-                className="border-white text-white hover:bg-white hover:text-footer-dark text-xl px-10 py-6 hover-lift"
-              >
+              <Button size="lg" variant="outline" asChild className="border-brand-blue-foreground text-brand-blue-foreground hover:bg-brand-blue-foreground hover:text-brand-blue text-lg px-8 py-4 hover-lift">
                 <a href="/contact">
-                  <ArrowRight className="w-6 h-6 mr-3" />
-                  Contact Us
+                  <Mail className="w-6 h-6 mr-3" />
+                  Contact Our Team
                 </a>
               </Button>
             </div>
           </div>
         </div>
       </section>
-      
+
       <WhatsAppButton />
     </Layout>
   );
