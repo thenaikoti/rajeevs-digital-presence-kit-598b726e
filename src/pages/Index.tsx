@@ -78,8 +78,8 @@ const Index = () => {
       <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] -z-10"></div>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Empowering Sustainability
                 <span className="block text-green-600 text-3xl lg:text-4xl font-medium mt-2">
@@ -89,10 +89,14 @@ const Index = () => {
               <div className="text-xl lg:text-2xl text-blue-600 font-semibold mb-4">
                 Rajeev Ranjan – Environmental Scientist | IPR Consultant
               </div>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
                 Guiding individuals, businesses, and innovators through environmental regulations and intellectual property rights—ensuring compliance, protection, and progress.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="bg-white rounded-lg shadow-lg p-4 inline-flex items-center space-x-2 mb-8">
+                <CheckCircle className="w-6 h-6 text-green-500" />
+                <span className="text-lg font-semibold text-gray-800">10+ Years Experience</span>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleWhatsAppClick}
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -103,29 +107,12 @@ const Index = () => {
                   <span>Consult Now on WhatsApp</span>
                 </button>
                 <Link
-                  to="/services"
+                  to="/contact"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  <span>Explore Services</span>
+                  <span>Get In Touch</span>
                   <ArrowRight size={20} />
                 </Link>
-              </div>
-            </div>
-            <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}>
-              <div className="relative">
-                <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-green-100 to-blue-200 flex items-center justify-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                    alt="Rajeev Ranjan - Environmental Scientist & IPR Consultant"
-                    className="w-72 h-72 rounded-full object-cover shadow-xl"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-6 h-6 text-green-500" />
-                    <span className="text-sm font-semibold text-gray-800">10+ Years Experience</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -184,10 +171,17 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link
-              to="/services"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+              to="/environmental-services"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 mr-4"
             >
-              <span>Explore Detailed Services</span>
+              <span>Environmental Services</span>
+              <ArrowRight size={20} />
+            </Link>
+            <Link
+              to="/ipr-services"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
+            >
+              <span>IPR Services</span>
               <ArrowRight size={20} />
             </Link>
           </div>
