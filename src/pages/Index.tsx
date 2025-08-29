@@ -1,276 +1,243 @@
 
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star, CheckCircle, Users, Leaf, Shield, FileText, Scale } from 'lucide-react';
+import { MessageCircle, Shield, Leaf, GraduationCap, CheckCircle, Users, Clock, Award, Star } from 'lucide-react';
 import Layout from '../components/Layout';
+import HeroSplit from '../components/sections/HeroSplit';
+import TrustBadges from '../components/sections/TrustBadges';
+import IconCardGrid from '../components/sections/IconCardGrid';
+import WhyChoose4 from '../components/sections/WhyChoose4';
+import CaseMini from '../components/sections/CaseMini';
+import Testimonials3 from '../components/sections/Testimonials3';
+import CTAFullWidth from '../components/sections/CTAFullWidth';
+import heroImage from '../assets/hero-innovation-sustainability.jpg';
+import ctaImage from '../assets/cta-network-innovation.jpg';
+import avatarImage from '../assets/testimonial-avatar-1.jpg';
 
 const Index = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const services = [
+  // Core Services Data
+  const coreServices = [
     {
-      icon: <Leaf className="w-8 h-8 text-green-600" />,
-      title: "Environmental Consultancy",
-      description: "EIA reports, legal audits, and sustainability compliance for businesses and institutions."
+      icon: <Shield className="w-12 h-12" />,
+      title: "IPR Consultancy",
+      description: "Secure patents, avoid risks, maximize IP value."
     },
     {
-      icon: <Shield className="w-8 h-8 text-blue-600" />,
-      title: "IPR Services",
-      description: "Patent filing, copyright & trademark registration to protect your innovations."
+      icon: <Leaf className="w-12 h-12" />,
+      title: "Environmental Consultancy", 
+      description: "Meet regulations, pass assessments, prove sustainability."
+    },
+    {
+      icon: <GraduationCap className="w-12 h-12" />,
+      title: "Training & Knowledge",
+      description: "Workshops, courses, and resources to empower your team."
     }
   ];
 
-  const whyChoosePoints = [
+  // Why Choose Data
+  const whyChooseItems = [
     {
-      icon: <Scale className="w-6 h-6 text-green-600" />,
-      text: "Deep expertise in both environmental law & IPR"
+      icon: <CheckCircle className="w-12 h-12" />,
+      title: "500+ Projects Delivered",
+      description: "98% approval success rate across all our client engagements"
     },
     {
-      icon: <Users className="w-6 h-6 text-blue-600" />,
-      text: "One-on-one consultation and personalized approach"
+      icon: <Users className="w-12 h-12" />,
+      title: "End-to-End Solutions", 
+      description: "From strategy to compliance & reporting - we handle everything"
     },
     {
-      icon: <CheckCircle className="w-6 h-6 text-green-600" />,
-      text: "Transparent, ethical, and compliant process"
+      icon: <Award className="w-12 h-12" />,
+      title: "Expert Team",
+      description: "Scientists, IP specialists, and consultants with deep expertise"
     },
     {
-      icon: <Star className="w-6 h-6 text-blue-600" />,
-      text: "Trusted by corporates, institutions & startups"
+      icon: <Clock className="w-12 h-12" />,
+      title: "24/7 Support",
+      description: "Always available when you need us most for urgent matters"
     }
   ];
 
+  // Case Studies Data
+  const caseStudies = [
+    {
+      title: "Tech Startup Success",
+      challenge: "High IP risk before critical funding round with potential patent conflicts",
+      approach: "Comprehensive IP audit and strategic patent portfolio development",
+      result: "Reduced IP risk by 70% and secured $2M funding round successfully"
+    },
+    {
+      title: "Manufacturing Efficiency", 
+      challenge: "Complex environmental approvals delaying production launch by months",
+      approach: "Streamlined compliance strategy with regulatory liaison support",
+      result: "Cleared environmental approvals in record time, saving 6 months"
+    },
+    {
+      title: "University Excellence",
+      challenge: "Need to train 200+ students on practical IP and sustainability frameworks",
+      approach: "Custom curriculum development with hands-on workshops and certification",
+      result: "Successfully trained 200+ students with 95% satisfaction rate"
+    }
+  ];
+
+  // Testimonials Data
   const testimonials = [
     {
-      name: "Dr. Priya Sharma",
-      company: "Green Tech Solutions",
-      text: "Rajeev's expertise in environmental compliance helped us navigate complex EIA requirements seamlessly.",
-      rating: 5
+      name: "Sarah Johnson",
+      role: "Founder",
+      company: "Tech Startup",
+      content: "EnviroAndIPR made our patent filing seamless. Couldn't recommend them more!",
+      rating: 5,
+      avatar: avatarImage
     },
     {
-      name: "Amit Kumar",
-      company: "Innovation Labs",
-      text: "His dual expertise in environmental law and IPR made him the perfect consultant for our green technology patents.",
-      rating: 5
+      name: "Michael Chen", 
+      role: "Director",
+      company: "Manufacturing Firm",
+      content: "They guided us through tough clearance approvals and we saved months of delay.",
+      rating: 5,
+      avatar: avatarImage
     },
     {
-      name: "Neha Gupta",
-      company: "EcoStart Pvt Ltd",
-      text: "Professional, knowledgeable, and ethical. Rajeev guided us through both sustainability compliance and IP protection.",
-      rating: 5
+      name: "Dr. Amanda Williams",
+      role: "Dean", 
+      company: "Leading University",
+      content: "Our students learned practical, industry-ready IP and sustainability skills.",
+      rating: 5,
+      avatar: avatarImage
     }
   ];
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "919876543210";
-    const message = "Hi Rajeev, I found your website and would like to discuss my environmental and IPR consultation needs. Can we schedule a consultation?";
+    const message = "Hi! I found your website and would like to book a free consultation for my environmental and IPR needs.";
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleConsultationClick = () => {
+    // Scroll to contact form or open modal
+    window.location.href = '/contact';
   };
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 via-blue-50 to-white py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] -z-10"></div>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Empowering Sustainability
-                <span className="block text-green-600 text-3xl lg:text-4xl font-medium mt-2">
-                  & Innovation
-                </span>
-              </h1>
-              <div className="text-xl lg:text-2xl text-blue-600 font-semibold mb-4">
-                Rajeev Ranjan – Environmental Scientist | IPR Consultant
-              </div>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-                Guiding individuals, businesses, and innovators through environmental regulations and intellectual property rights—ensuring compliance, protection, and progress.
-              </p>
-              <div className="bg-white rounded-lg shadow-lg p-4 inline-flex items-center space-x-2 mb-8">
-                <CheckCircle className="w-6 h-6 text-green-500" />
-                <span className="text-lg font-semibold text-gray-800">10+ Years Experience</span>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={handleWhatsAppClick}
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.687"/>
-                  </svg>
-                  <span>Consult Now on WhatsApp</span>
-                </button>
-                <Link
-                  to="/contact"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  <span>Get In Touch</span>
-                  <ArrowRight size={20} />
-                </Link>
+      {/* 1. Hero Section */}
+      <HeroSplit
+        headline="Protect Your Ideas. Power Your Growth. Preserve Our Planet."
+        subheadline="EnviroAndIPR helps innovators, businesses, and institutions secure intellectual property and achieve environmental compliance — so you can grow faster, safer, and smarter."
+        ctaPrimary="Book a Free Consultation Today"
+        ctaSecondary="Chat with Us on WhatsApp"
+        imageUrl={heroImage}
+        imageAlt="Innovation and sustainability combined - business growth with environmental protection"
+        onPrimaryClick={handleConsultationClick}
+        onSecondaryClick={handleWhatsAppClick}
+      />
+
+      {/* 2. Trust Badges / Social Proof */}
+      <TrustBadges 
+        title="Trusted by 500+ Innovators, Enterprises, and Institutions Worldwide"
+      />
+
+      {/* 3. Core Services (3 Pillars) */}
+      <IconCardGrid
+        title="One Partner. Two Missions. Infinite Value."
+        subtitle="We combine deep expertise in Intellectual Property and Environmental Consulting to give you a one-stop solution for compliance, protection, and growth."
+        services={coreServices}
+        columns={3}
+      />
+
+      {/* Schedule Free Strategy Session CTA */}
+      <section className="section-padding-sm bg-background">
+        <div className="container-custom text-center">
+          <button
+            onClick={handleConsultationClick}
+            className="bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover-lift"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Schedule a Free Strategy Session</span>
+          </button>
+        </div>
+      </section>
+
+      {/* 4. Why Choose EnviroAndIPR */}
+      <WhyChoose4
+        title="Why Businesses Trust Us to Safeguard Their Future"
+        items={whyChooseItems}
+      />
+
+      {/* Get Started CTA */}
+      <section className="section-padding-sm bg-background">
+        <div className="container-custom text-center">
+          <button
+            onClick={handleConsultationClick}
+            className="bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover-lift"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Get Started in 24 Hours</span>
+          </button>
+        </div>
+      </section>
+
+      {/* 5. Case Snapshots (Mini Success Stories) */}
+      <CaseMini
+        title="Real Results for Real Clients"
+        cases={caseStudies}
+      />
+
+      {/* Book Discovery Call CTA */}
+      <section className="section-padding-sm bg-background">
+        <div className="container-custom text-center">
+          <button
+            onClick={handleConsultationClick}
+            className="bg-brand-green hover:bg-brand-green/90 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover-lift"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Book a Discovery Call Now</span>
+          </button>
+        </div>
+      </section>
+
+      {/* 6. Testimonials (Social Proof) */}
+      <Testimonials3
+        title="What Our Clients Say"
+        testimonials={testimonials}
+      />
+
+      {/* 7. Call-to-Action (Full Width Gradient Section) */}
+      <CTAFullWidth
+        headline="Don't Risk Delays, Fines, or Missed Opportunities."
+        subheadline="Let our experts protect your intellectual property and ensure environmental compliance — so you focus on what matters: growth."
+        ctaPrimary="Book My Free Consultation"
+        ctaSecondary="Chat on WhatsApp Now"
+        illustrationUrl={ctaImage}
+        onPrimaryClick={handleConsultationClick}
+        onSecondaryClick={handleWhatsAppClick}
+      />
+
+      {/* 8. Footer Pre-CTA */}
+      <section className="section-padding-sm bg-secondary/10">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+              <h4 className="text-h4 mb-4">Contact Info</h4>
+              <div className="space-y-2 text-body text-sm">
+                <p>📞 +91 98765 43210</p>
+                <p>📧 info@enviroandIPR.com</p>
+                <p>📍 New Delhi, India</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              About Rajeev Ranjan
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Rajeev Ranjan is a seasoned environmental scientist and legal consultant with expertise in both ecological compliance and intellectual property rights. With over 10 years of cross-disciplinary experience, he assists businesses, institutions, and independent inventors in achieving sustainable practices and protecting their innovations.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              What I Offer
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive solutions for environmental compliance and intellectual property protection
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="mb-6">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                <button
-                  onClick={handleWhatsAppClick}
-                  className="text-green-600 hover:text-green-700 font-semibold flex items-center space-x-2 transition-colors"
-                >
-                  <span>Enquire Now</span>
-                  <ArrowRight size={16} />
-                </button>
+            <div>
+              <h4 className="text-h4 mb-4">Response Time</h4>
+              <p className="text-brand-green font-semibold">We typically respond in under 1 hour.</p>
+            </div>
+            <div>
+              <h4 className="text-h4 mb-4">Quick Links</h4>
+              <div className="space-y-2 text-body text-sm">
+                <p><a href="/environmental-services" className="hover:text-brand-green transition-colors">Environmental Services</a></p>
+                <p><a href="/ipr-services" className="hover:text-brand-green transition-colors">IPR Services</a></p>
+                <p><a href="/about" className="hover:text-brand-green transition-colors">About</a></p>
+                <p><a href="/contact" className="hover:text-brand-green transition-colors">Contact</a></p>
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              to="/environmental-services"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 mr-4"
-            >
-              <span>Environmental Services</span>
-              <ArrowRight size={20} />
-            </Link>
-            <Link
-              to="/ipr-services"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>IPR Services</span>
-              <ArrowRight size={20} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Why Clients Work with Me
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {whyChoosePoints.map((point, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-4 p-6 bg-gray-50 rounded-lg"
-              >
-                {point.icon}
-                <span className="text-gray-800 font-medium">{point.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Client Testimonials
-            </h2>
-            <p className="text-xl text-gray-600">
-              What clients say about working with Rajeev
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-8 shadow-lg border border-gray-100"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Need Expert Advice or Services?
-          </h2>
-          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            Let's get your project compliant and your ideas protected. Reach out for a personalized consultation today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={handleWhatsAppClick}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.687"/>
-              </svg>
-              <span>Start Consultation</span>
-            </button>
-            <Link
-              to="/contact"
-              className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>Message on WhatsApp</span>
-              <ArrowRight size={20} />
-            </Link>
+            </div>
           </div>
         </div>
       </section>
