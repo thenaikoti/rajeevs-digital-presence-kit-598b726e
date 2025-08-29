@@ -106,8 +106,8 @@ const About = () => {
       <HeroSplit
         headline="Science, Law & Strategy—Under One Roof"
         subheadline="Comprehensive environmental and intellectual property consultancy services backed by deep expertise, proven results, and client-focused approach."
-        primaryButtonText="Get Free Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="Get Free Consultation"
+        ctaSecondary="Contact Us"
         imageUrl={heroAboutTeam}
         imageAlt="EnviroAndIPR expert team"
         onPrimaryClick={handleWhatsAppClick}
@@ -183,8 +183,8 @@ const About = () => {
       <CTAFullWidth
         headline="Ready to Drive Your Next Initiative?"
         subheadline="Partner with EnviroAndIPR for comprehensive environmental and IP solutions that accelerate your business growth."
-        primaryButtonText="WhatsApp Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="WhatsApp Consultation"
+        ctaSecondary="Contact Us"
         onPrimaryClick={handleWhatsAppClick}
         onSecondaryClick={handleContactClick}
       />

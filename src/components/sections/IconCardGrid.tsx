@@ -13,9 +13,11 @@ export interface ServiceCard {
 interface IconCardGridProps {
   services: ServiceCard[];
   columns?: 2 | 3 | 4;
+  title?: string;
+  subtitle?: string;
 }
 
-const IconCardGrid = ({ services, columns = 3 }: IconCardGridProps) => {
+const IconCardGrid = ({ services, columns = 3, title, subtitle }: IconCardGridProps) => {
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
 
   const toggleCard = (index: number) => {
@@ -35,7 +37,16 @@ const IconCardGrid = ({ services, columns = 3 }: IconCardGridProps) => {
   };
 
   return (
-    <div className={`grid gap-6 ${gridCols[columns]}`}>
+    <section className="section-padding bg-background">
+      <div className="container-custom">
+        {(title || subtitle) && (
+          <div className="text-center mb-16">
+            {title && <h2 className="text-h2 mb-4">{title}</h2>}
+            {subtitle && <p className="text-body text-lg max-w-2xl mx-auto">{subtitle}</p>}
+          </div>
+        )}
+        
+        <div className={`grid gap-6 ${gridCols[columns]}`}>
       {services.map((service, index) => {
         const isExpanded = expandedCards.has(index);
         
@@ -91,7 +102,9 @@ const IconCardGrid = ({ services, columns = 3 }: IconCardGridProps) => {
           </Card>
         );
       })}
-    </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

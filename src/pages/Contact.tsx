@@ -146,8 +146,8 @@ const Contact = () => {
       <HeroSplit
         headline="Let's Discuss Your Next Project"
         subheadline="Ready to ensure compliance, protect your innovations, and drive sustainable growth? Get in touch with our expert team for personalized solutions."
-        primaryButtonText="WhatsApp Consultation"
-        secondaryButtonText="Fill Contact Form"
+        ctaPrimary="WhatsApp Consultation"
+        ctaSecondary="Fill Contact Form"
         imageUrl={heroContact}
         imageAlt="Contact EnviroAndIPR team"
         onPrimaryClick={handleWhatsAppClick}

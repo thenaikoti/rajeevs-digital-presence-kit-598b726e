@@ -129,32 +129,32 @@ const IPRServices = () => {
 
   const industries = [
     {
-      name: "Environmental Technology",
+      title: "Environmental Technology",
       icon: <Globe className="w-8 h-8" />,
       description: "Clean energy, waste management, pollution control innovations"
     },
     {
-      name: "Biotechnology",
+      title: "Biotechnology",
       icon: <Lightbulb className="w-8 h-8" />,
       description: "Pharmaceuticals, medical devices, bioengineering solutions"
     },
     {
-      name: "Information Technology",
+      title: "Information Technology",
       icon: <Settings className="w-8 h-8" />,
       description: "Software, AI, telecommunications, and electronics innovations"
     },
     {
-      name: "Manufacturing",
+      title: "Manufacturing",
       icon: <Award className="w-8 h-8" />,
       description: "Industrial processes, automation, and advanced materials"
     },
     {
-      name: "Research & Academia",
+      title: "Research & Academia",
       icon: <BookOpen className="w-8 h-8" />,
       description: "Universities, research institutions, and innovation centers"
     },
     {
-      name: "Startups & SMEs",
+      title: "Startups & SMEs",
       icon: <TrendingUp className="w-8 h-8" />,
       description: "Emerging companies, innovation hubs, and technology incubators"
     }
@@ -292,8 +292,8 @@ const IPRServices = () => {
       <HeroSplit
         headline="Safeguard Your Ideas. Accelerate Your Growth."
         subheadline="Comprehensive intellectual property services helping inventors, startups, and enterprises secure and maximize their IP potential through expert research, strategy, and protection."
-        primaryButtonText="Get Free Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="Get Free Consultation"
+        ctaSecondary="Contact Us"
         imageUrl={heroIprPatents}
         imageAlt="Intellectual property and patent protection"
         onPrimaryClick={handleWhatsAppClick}
@@ -341,8 +341,8 @@ const IPRServices = () => {
       <CTAFullWidth
         headline="Ready to Secure Your Next Big Idea?"
         subheadline="Transform your innovations into competitive advantages with expert IP strategy, comprehensive protection, and strategic portfolio management."
-        primaryButtonText="WhatsApp Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="WhatsApp Consultation"
+        ctaSecondary="Contact Us"
         onPrimaryClick={handleWhatsAppClick}
         onSecondaryClick={handleContactClick}
       />

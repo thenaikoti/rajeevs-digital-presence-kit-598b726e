@@ -117,32 +117,32 @@ const EnvironmentalServices = () => {
 
   const industries = [
     {
-      name: "Environmental Technology",
+      title: "Environmental Technology",
       icon: <TreePine className="w-8 h-8" />,
       description: "Clean energy, waste management, pollution control solutions"
     },
     {
-      name: "Energy & Power",
+      title: "Energy & Power",
       icon: <Zap className="w-8 h-8" />,
       description: "Renewable energy projects, sustainable power solutions"
     },
     {
-      name: "Biotechnology", 
+      title: "Biotechnology", 
       icon: <FlaskConical className="w-8 h-8" />,
       description: "Bio-tech environmental applications and regulatory compliance"
     },
     {
-      name: "Manufacturing",
+      title: "Manufacturing",
       icon: <Factory className="w-8 h-8" />,
       description: "Industrial processes, environmental compliance, and sustainability"
     },
     {
-      name: "Information Technology",
+      title: "Information Technology",
       icon: <Laptop className="w-8 h-8" />,
       description: "IT infrastructure sustainability and green technology practices"
     },
     {
-      name: "Research & Academia",
+      title: "Research & Academia",
       icon: <GraduationCap className="w-8 h-8" />,
       description: "Universities, research institutions, and academic studies"
     }
@@ -280,8 +280,8 @@ const EnvironmentalServices = () => {
       <HeroSplit
         headline="Drive Sustainable Progress. Ensure Environmental Compliance."
         subheadline="Partner with EnviroAndIPR for comprehensive environmental assessments, regulatory clearances, compliance management, and sustainability reporting."
-        primaryButtonText="Get Free Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="Get Free Consultation"
+        ctaSecondary="Contact Us"
         imageUrl={heroSustainability}
         imageAlt="Environmental sustainability and compliance"
         onPrimaryClick={handleWhatsAppClick}
@@ -329,8 +329,8 @@ const EnvironmentalServices = () => {
       <CTAFullWidth
         headline="Ready to Drive Your Next Sustainability Initiative?"
         subheadline="Transform your environmental impact with expert guidance, comprehensive compliance solutions, and strategic sustainability planning."
-        primaryButtonText="WhatsApp Consultation"
-        secondaryButtonText="Contact Us"
+        ctaPrimary="WhatsApp Consultation"
+        ctaSecondary="Contact Us"
         onPrimaryClick={handleWhatsAppClick}
         onSecondaryClick={handleContactClick}
       />
