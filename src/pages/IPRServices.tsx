@@ -1,206 +1,272 @@
 import { Shield, Search, FileText, BarChart3, CheckCircle, MessageCircle, Mail, ArrowRight, Users, Clock, Globe, Award, Lightbulb, Target, TrendingUp, BookOpen, Star, GraduationCap, Eye, Building, Zap, Brain, Lock, Fingerprint, Settings, HelpCircle, DollarSign, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import Layout from '@/components/Layout';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import testimonialSarah from '@/assets/testimonial-sarah.jpg';
-import testimonialMichael from '@/assets/testimonial-michael.jpg';
-import testimonialAmanda from '@/assets/testimonial-amanda.jpg';
-import iprHeroIllustration from '@/assets/ipr-hero-illustration.jpg';
-import processIllustration from '@/assets/process-illustration.jpg';
-import ctaIllustration from '@/assets/cta-illustration.jpg';
+import Layout from '@/components/Layout';
+import HeroSplit from '@/components/sections/HeroSplit';
+import IconCardGrid from '@/components/sections/IconCardGrid';
+import StatsStrip from '@/components/sections/StatsStrip';
+import Timeline5 from '@/components/sections/Timeline5';
+import IndustriesGrid from '@/components/sections/IndustriesGrid';
+import Testimonials3 from '@/components/sections/Testimonials3';
+import WhyChoose4 from '@/components/sections/WhyChoose4';
+import FAQTabs from '@/components/sections/FAQTabs';
+import CTAFullWidth from '@/components/sections/CTAFullWidth';
+import heroIprPatents from '@/assets/hero-ipr-patents.jpg';
+import testimonialAvatar1 from '@/assets/testimonial-avatar-1.jpg';
+import testimonialAvatar2 from '@/assets/testimonial-avatar-2.jpg';
+import testimonialAvatar3 from '@/assets/testimonial-avatar-3.jpg';
 
 const IPRServices = () => {
   const services = [
     {
+      icon: <Search className="w-12 h-12" />,
       title: "Patentability Search",
-      icon: Search,
-      description: "Assess invention uniqueness before filing with comprehensive global searches."
+      description: "Assess invention uniqueness before filing with comprehensive global prior art searches.",
+      details: "Comprehensive patentability searches to evaluate the novelty and non-obviousness of your invention. Our expert team conducts thorough searches across global patent databases, technical literature, and commercial products to assess patentability prospects. We provide detailed analysis reports with strategic recommendations for patent filing, claim drafting guidance, and competitive landscape insights to maximize your IP protection strategy."
     },
     {
-      title: "Validity/Invalidity Search", 
-      icon: Eye,
-      description: "Validate or challenge patents with exhaustive prior art research."
+      icon: <Eye className="w-12 h-12" />,
+      title: "Validity/Invalidity Search",
+      description: "Validate or challenge patents with exhaustive prior art research and legal analysis.",
+      details: "Expert validity and invalidity searches to strengthen or challenge existing patents. Our comprehensive analysis includes prior art searches, claim construction analysis, and legal precedent review. We provide detailed invalidity contentions, expert witness support, and strategic advice for patent litigation, licensing negotiations, and portfolio optimization decisions."
     },
     {
+      icon: <Shield className="w-12 h-12" />,
       title: "Infringement Search",
-      icon: Shield,
-      description: "Identify enforceable patents that might overlap with your innovations."
+      description: "Identify enforceable patents that might overlap with your innovations and products.",
+      details: "Thorough infringement analysis to identify patents that may pose risks to your products or services. Our team conducts detailed claim mapping, provides infringement risk assessments, and develops design-around strategies. We offer comprehensive FTO opinions, litigation risk analysis, and strategic recommendations for product development and commercialization decisions."
     },
     {
+      icon: <Zap className="w-12 h-12" />,
       title: "Freedom to Operate (FTO)",
-      icon: Zap,
-      description: "Ensure your innovation can proceed without infringing existing patents."
+      description: "Ensure your innovation can proceed without infringing existing patent rights.",
+      details: "Comprehensive Freedom to Operate analysis ensuring your products can be commercialized without patent infringement risks. Our FTO studies include patent landscape mapping, claim analysis, and risk assessment across relevant jurisdictions. We provide strategic recommendations for product development, design-around options, and licensing opportunities to enable successful market entry."
     },
     {
-      title: "Patent Drafting",
-      icon: FileText,
-      description: "Craft robust, compliant applications that withstand scrutiny."
+      icon: <FileText className="w-12 h-12" />,
+      title: "Patent Drafting & Preparation",
+      description: "Craft robust, compliant patent applications that withstand examination scrutiny.",
+      details: "Professional patent drafting services combining technical expertise with legal precision. Our experienced team prepares high-quality patent specifications, claims, and drawings that maximize protection scope while ensuring compliance with patent office requirements. We specialize in complex technical inventions across multiple jurisdictions with strategic claim architecture."
     },
     {
+      icon: <Brain className="w-12 h-12" />,
       title: "State-of-the-Art Search",
-      icon: Brain,
-      description: "Map technology landscapes to spot opportunities and direct R&D."
+      description: "Map comprehensive technology landscapes to identify opportunities and guide R&D.",
+      details: "Comprehensive state-of-the-art searches providing complete technology landscape analysis. Our research covers patent and non-patent literature, emerging technologies, and market trends. We deliver strategic insights for R&D planning, competitive intelligence, technology forecasting, and innovation opportunity identification to guide your technology development investments."
     },
     {
+      icon: <BarChart3 className="w-12 h-12" />,
       title: "Patent Landscape Study",
-      icon: BarChart3,
-      description: "Understand competitor IP strategies and identify market gaps."
+      description: "Understand competitor IP strategies and identify white spaces for innovation.",
+      details: "Detailed patent landscape analysis providing comprehensive market intelligence and competitive insights. Our studies include patent mapping, competitor analysis, technology trends, and white space identification. We deliver actionable intelligence for strategic planning, licensing opportunities, acquisition targets, and technology development priorities."
     },
     {
+      icon: <Building className="w-12 h-12" />,
       title: "Competitor Analysis",
-      icon: Building,
-      description: "Analyze rival portfolios to identify threats and opportunities."
+      description: "Analyze rival patent portfolios to identify threats, opportunities, and strategic gaps.",
+      details: "In-depth competitor patent analysis providing strategic competitive intelligence. Our analysis includes portfolio strength assessment, filing strategies, technology focus areas, and licensing activities. We identify competitive advantages, potential collaboration opportunities, and strategic threats to inform business development and IP strategy decisions."
     },
     {
-      title: "Portfolio Analysis",
-      icon: Target,
-      description: "Evaluate existing patents for licensing and investment decisions."
+      icon: <Target className="w-12 h-12" />,
+      title: "Patent Portfolio Analysis",
+      description: "Evaluate existing patent portfolios for licensing potential and investment decisions.",
+      details: "Comprehensive patent portfolio evaluation and optimization services. Our analysis includes patent strength assessment, commercialization potential, maintenance cost analysis, and strategic value evaluation. We provide recommendations for portfolio pruning, licensing opportunities, monetization strategies, and strategic acquisitions to maximize portfolio ROI."
     },
     {
+      icon: <Lightbulb className="w-12 h-12" />,
       title: "Technology Assessment",
-      icon: Lightbulb,
-      description: "Uncover innovation opportunities and fuel smarter development."
+      description: "Uncover innovation opportunities and fuel smarter technology development decisions.",
+      details: "Strategic technology assessment combining patent intelligence with market analysis. Our assessments evaluate technology maturity, commercial potential, competitive landscape, and development opportunities. We provide strategic recommendations for technology investments, partnership opportunities, and innovation roadmap development to optimize R&D resource allocation."
     },
     {
+      icon: <Globe className="w-12 h-12" />,
       title: "White-space Analysis",
-      icon: Globe,
-      description: "Identify low patent density areas for new innovation opportunities."
+      description: "Identify low patent density areas for new innovation opportunities and development.",
+      details: "Comprehensive white-space analysis identifying untapped innovation opportunities. Our research maps patent-free areas within technology domains, emerging application areas, and underexplored technical solutions. We provide strategic guidance for R&D focus areas, new product development, and market entry strategies in patent-light territories."
     },
     {
+      icon: <GraduationCap className="w-12 h-12" />,
       title: "IP Education & Training",
-      icon: GraduationCap,
-      description: "Patent agent exam prep, workshops, and IP courses for teams."
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: Award,
-      title: "Expert Knowledge",
-      description: "Decades of experience in patent research and IP strategy"
-    },
-    {
-      icon: TrendingUp,
-      title: "Business-Oriented",
-      description: "IP advisory that drives real commercial value"
-    },
-    {
-      icon: Lock,
-      title: "Confidential Service",
-      description: "Trusted by inventors, startups, corporates, and institutions"
-    },
-    {
-      icon: Target,
-      title: "Actionable Insights",
-      description: "Transform IP into competitive advantage with clear strategies"
+      description: "Patent agent exam preparation, workshops, and comprehensive IP training programs.",
+      details: "Comprehensive IP education and training programs for professionals, students, and organizations. Our services include patent agent exam coaching, IP awareness workshops, portfolio management training, and strategic IP education. We offer customized curricula covering patent law, filing procedures, prosecution strategies, and IP commercialization for various stakeholder groups."
     }
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Completed", icon: FileText },
-    { number: "200+", label: "Satisfied Clients", icon: Users },
-    { number: "98%", label: "Success Rate", icon: Target },
-    { number: "24/7", label: "Support Available", icon: Clock }
+    { icon: <FileText className="w-12 h-12" />, number: "500+", label: "Projects Completed" },
+    { icon: <Users className="w-12 h-12" />, number: "200+", label: "Satisfied Clients" },
+    { icon: <Target className="w-12 h-12" />, number: "98%", label: "Success Rate" },
+    { icon: <Clock className="w-12 h-12" />, number: "24/7", label: "Support Available" }
   ];
 
   const process = [
     {
-      step: 1,
+      icon: <MessageCircle className="w-8 h-8" />,
       title: "Initial Consultation",
-      description: "Understand your innovation and IP needs",
-      icon: MessageCircle
+      description: "Understand your innovation goals and IP protection needs"
     },
     {
-      step: 2,
+      icon: <Target className="w-8 h-8" />,
       title: "Strategic Planning",
-      description: "Develop customized IP strategy",
-      icon: Target
+      description: "Develop customized IP strategy and protection roadmap"
     },
     {
-      step: 3,
+      icon: <Search className="w-8 h-8" />,
       title: "Research & Analysis",
-      description: "Comprehensive searches and landscape analysis",
-      icon: Search
+      description: "Comprehensive searches and competitive landscape analysis"
     },
     {
-      step: 4,
-      title: "Implementation",
-      description: "Professional drafting and portfolio management",
-      icon: Shield
+      icon: <Shield className="w-8 h-8" />,
+      title: "Implementation & Filing",
+      description: "Professional drafting, filing, and portfolio management"
     },
     {
-      step: 5,
+      icon: <TrendingUp className="w-8 h-8" />,
       title: "Monitoring & Support",
-      description: "Ongoing portfolio monitoring and strategic advice",
-      icon: TrendingUp
+      description: "Ongoing portfolio monitoring and strategic IP guidance"
+    }
+  ];
+
+  const industries = [
+    {
+      name: "Environmental Technology",
+      icon: <Globe className="w-8 h-8" />,
+      description: "Clean energy, waste management, pollution control innovations"
+    },
+    {
+      name: "Biotechnology",
+      icon: <Lightbulb className="w-8 h-8" />,
+      description: "Pharmaceuticals, medical devices, bioengineering solutions"
+    },
+    {
+      name: "Information Technology",
+      icon: <Settings className="w-8 h-8" />,
+      description: "Software, AI, telecommunications, and electronics innovations"
+    },
+    {
+      name: "Manufacturing",
+      icon: <Award className="w-8 h-8" />,
+      description: "Industrial processes, automation, and advanced materials"
+    },
+    {
+      name: "Research & Academia",
+      icon: <BookOpen className="w-8 h-8" />,
+      description: "Universities, research institutions, and innovation centers"
+    },
+    {
+      name: "Startups & SMEs",
+      icon: <TrendingUp className="w-8 h-8" />,
+      description: "Emerging companies, innovation hubs, and technology incubators"
     }
   ];
 
   const testimonials = [
     {
       name: "Dr. Sarah Johnson",
-      company: "TechStart Innovations",
       role: "CTO",
-      content: "EnviroAndIPR's expertise helped us secure crucial IP protection for our breakthrough technology. Exceptional attention to detail.",
+      company: "TechStart Innovations",
+      content: "EnviroAndIPR's expertise helped us secure crucial IP protection for our breakthrough environmental technology.",
       rating: 5,
-      image: testimonialSarah
+      avatar: testimonialAvatar1
     },
     {
       name: "Michael Chen",
-      company: "GreenTech Solutions",
       role: "Founder",
+      company: "GreenTech Solutions",
       content: "Perfect partner for our patent strategy. Their deep understanding of both environmental tech and IP law is invaluable.",
       rating: 5,
-      image: testimonialMichael
+      avatar: testimonialAvatar2
     },
     {
       name: "Prof. Amanda Rodriguez",
-      company: "Research Institute",
-      role: "Director",
-      content: "Outstanding patent landscape analysis. They identified white spaces that guided our R&D investments effectively.",
+      role: "Research Director",
+      company: "Innovation Institute",
+      content: "Outstanding patent landscape analysis that identified white spaces and guided our R&D investments effectively.",
       rating: 5,
-      image: testimonialAmanda
+      avatar: testimonialAvatar3
     }
   ];
 
-  const industries = [
-    { name: "Environmental Technology", icon: Globe, description: "Clean energy, waste management, pollution control" },
-    { name: "Biotechnology", icon: Lightbulb, description: "Pharmaceuticals, medical devices, bioengineering" },
-    { name: "Information Technology", icon: Settings, description: "Software, AI, telecommunications, electronics" },
-    { name: "Manufacturing", icon: Award, description: "Industrial processes, automation, materials" },
-    { name: "Research & Academia", icon: BookOpen, description: "Universities, research institutions, think tanks" },
-    { name: "Startups & SMEs", icon: TrendingUp, description: "Emerging companies, innovation hubs, incubators" }
+  const whyChoose = [
+    {
+      icon: <Award className="w-12 h-12" />,
+      title: "Expert Knowledge",
+      description: "Decades of experience in patent research, IP strategy, and technology analysis"
+    },
+    {
+      icon: <TrendingUp className="w-12 h-12" />,
+      title: "Business-Oriented",
+      description: "IP advisory services that drive real commercial value and competitive advantage"
+    },
+    {
+      icon: <Lock className="w-12 h-12" />,
+      title: "Confidential Service",
+      description: "Trusted by inventors, startups, corporates, and academic institutions worldwide"
+    },
+    {
+      icon: <Target className="w-12 h-12" />,
+      title: "Actionable Insights",
+      description: "Transform IP intelligence into strategic business advantage with clear recommendations"
+    }
   ];
 
-  const faqs = [
+  const faqTabs = [
     {
-      question: "How long does patent filing take?",
-      answer: "Initial application preparation takes 2-4 weeks, followed by 18-36 months for patent office examination, depending on jurisdiction and complexity."
+      icon: <HelpCircle className="w-5 h-5" />,
+      label: "General",
+      value: "general",
+      faqs: [
+        {
+          question: "How long does patent filing take?",
+          answer: "Initial application preparation takes 2-4 weeks, followed by 18-36 months for patent office examination, depending on jurisdiction and complexity."
+        },
+        {
+          question: "Can I file patents internationally?",
+          answer: "Yes, we assist with international filing through PCT applications and direct national entries in multiple countries worldwide."
+        },
+        {
+          question: "What is freedom to operate analysis?",
+          answer: "FTO analysis identifies existing patents that might block your product from market entry, helping navigate potential infringement issues before commercialization."
+        }
+      ]
     },
     {
-      question: "What are patent filing costs?",
-      answer: "Costs vary based on application type, claims, and jurisdictions. We provide detailed estimates after consultation and work within various budgets."
+      icon: <Settings className="w-5 h-5" />,
+      label: "Process",
+      value: "process",
+      faqs: [
+        {
+          question: "How do you develop IP strategy for startups?",
+          answer: "We analyze your technology, market position, and goals to create tailored IP strategies that maximize protection while optimizing costs and timeline."
+        },
+        {
+          question: "What's included in patent landscape studies?",
+          answer: "Comprehensive analysis including patent mapping, competitor strategies, technology trends, white space identification, and strategic recommendations."
+        },
+        {
+          question: "Do you provide ongoing portfolio management?",
+          answer: "Yes, we offer complete portfolio management including maintenance, monitoring, licensing opportunities, and strategic optimization services."
+        }
+      ]
     },
     {
-      question: "Can I file patents internationally?",
-      answer: "Yes, we assist with international filing through PCT applications and direct national entries in multiple countries worldwide."
-    },
-    {
-      question: "How do you develop IP strategy for startups?",
-      answer: "We analyze your technology, market position, and goals to create tailored IP strategies that maximize protection while optimizing costs and timeline."
-    },
-    {
-      question: "What is freedom to operate analysis?",
-      answer: "FTO analysis identifies existing patents that might block your product from market entry, helping navigate potential infringement issues."
-    },
-    {
-      question: "Do you provide patent agent exam coaching?",
-      answer: "Yes, we offer comprehensive preparation including study materials, mock tests, and personalized coaching for patent agent examinations."
+      icon: <DollarSign className="w-5 h-5" />,
+      label: "Pricing",
+      value: "pricing",
+      faqs: [
+        {
+          question: "What are patent filing costs?",
+          answer: "Costs vary based on application type, claims complexity, and jurisdictions. We provide detailed estimates after consultation and work within various budgets."
+        },
+        {
+          question: "Do you offer payment plans?",
+          answer: "Yes, we offer flexible payment arrangements for ongoing services and can structure payments based on project milestones and client needs."
+        },
+        {
+          question: "Are there additional costs for international filing?",
+          answer: "International filing involves additional official fees and translation costs. We provide transparent cost estimates covering all associated expenses upfront."
+        }
+      ]
     }
   ];
 
@@ -211,6 +277,10 @@ const IPRServices = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleContactClick = () => {
+    window.location.href = '/contact';
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -219,278 +289,63 @@ const IPRServices = () => {
         <meta name="keywords" content="IPR consultancy, patent search, patent filing, intellectual property, patent drafting, IP strategy, patent landscape analysis, patent portfolio" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-blue/5 via-background to-brand-green/5 py-16 md:py-24 px-4 overflow-hidden">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <Badge variant="outline" className="text-sm font-semibold border-brand-blue/30 text-brand-blue">
-                <Shield className="w-4 h-4 mr-2" />
-                IPR Consultancy Services
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-brand-blue leading-tight">
-                Safeguard Your Ideas. 
-                <span className="bg-gradient-to-r from-brand-green to-primary bg-clip-text text-transparent">
-                  Accelerate Your Growth.
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Helping inventors, startups, and enterprises secure and maximize their intellectual property with expert searches, drafting, and strategy.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" onClick={handleWhatsAppClick} className="bg-brand-green hover:bg-brand-green/90 text-brand-green-foreground hover-lift shadow-elegant">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Get Free Consultation
-                </Button>
-                <Button size="lg" variant="outline" asChild className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-brand-blue-foreground hover-lift">
-                  <a href="/contact">
-                    <Mail className="w-5 h-5 mr-2" />
-                    Contact Us
-                  </a>
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src={iprHeroIllustration} 
-                alt="IPR and innovation illustration" 
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSplit
+        headline="Safeguard Your Ideas. Accelerate Your Growth."
+        subheadline="Comprehensive intellectual property services helping inventors, startups, and enterprises secure and maximize their IP potential through expert research, strategy, and protection."
+        primaryButtonText="Get Free Consultation"
+        secondaryButtonText="Contact Us"
+        imageUrl={heroIprPatents}
+        imageAlt="Intellectual property and patent protection"
+        onPrimaryClick={handleWhatsAppClick}
+        onSecondaryClick={handleContactClick}
+      />
 
-      {/* Service Offerings */}
-      <section className="py-16 md:py-20 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-brand-blue">Our IPR Services</h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive intellectual property services to protect and maximize your innovations
-            </p>
-          </div>
+      <IconCardGrid 
+        services={services}
+        title="Our IPR Services"
+        subtitle="Comprehensive intellectual property services to protect, enhance, and monetize your innovations"
+      />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
-                <CardContent className="p-6">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-4 bg-brand-blue/10 rounded-xl group-hover:bg-brand-blue/20 transition-all duration-300">
-                      <service.icon className="w-8 h-8 text-brand-blue" />
-                    </div>
-                    <h3 className="font-bold text-lg text-brand-blue">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsStrip stats={stats} />
 
-      {/* Stats Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-muted/30 to-accent/30">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-blue">Trusted by Innovators Worldwide</h2>
-            <p className="text-lg text-muted-foreground">Our track record speaks for itself</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-background rounded-xl shadow-elegant hover-lift transition-all duration-300">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-brand-green/10 rounded-xl">
-                    <stat.icon className="w-8 h-8 text-brand-green" />
-                  </div>
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-brand-blue mb-2">{stat.number}</div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Timeline5 
+        steps={process}
+        title="Our Proven Process"
+        subtitle="From consultation to ongoing support, we guide you through every step of IP protection and strategy"
+      />
 
-      {/* Process Section */}
-      <section className="py-16 md:py-20 px-4 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <img src={processIllustration} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto relative">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">Our Proven Process</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From consultation to ongoing support, we guide you through every step
-            </p>
-          </div>
-          <div className="grid md:grid-cols-5 gap-8">
-            {process.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center text-brand-green-foreground font-bold text-xl shadow-lg hover-lift transition-all duration-300">
-                      {step.step}
-                    </div>
-                    {index < process.length - 1 && (
-                      <div className="hidden md:block absolute top-8 left-16 w-16 h-0.5 bg-brand-blue/30"></div>
-                    )}
-                  </div>
-                </div>
-                <div className="flex justify-center mb-4">
-                  <step.icon className="w-6 h-6 text-brand-blue" />
-                </div>
-                <h3 className="font-bold mb-3 text-brand-blue">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <IndustriesGrid 
+        industries={industries}
+        title="Industries We Serve"
+        subtitle="Specialized IP expertise across diverse sectors and emerging technology domains"
+      />
 
-      {/* Industries Section */}
-      <section className="py-16 md:py-20 px-4 bg-accent/20">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">Industries We Serve</h2>
-            <p className="text-lg text-muted-foreground">
-              Specialized expertise across diverse sectors and emerging technologies
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry, index) => (
-              <Card key={index} className="hover-lift transition-all duration-300 group border-0 shadow-elegant hover:shadow-hover">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="p-3 bg-brand-blue/10 rounded-xl group-hover:bg-brand-blue/20 transition-all duration-300">
-                      <industry.icon className="w-6 h-6 text-brand-blue" />
-                    </div>
-                    <h3 className="font-bold text-lg text-brand-blue">{industry.name}</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{industry.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials3 
+        testimonials={testimonials}
+        title="What Our Clients Say"
+        subtitle="Trusted by innovators, entrepreneurs, and IP professionals worldwide"
+      />
 
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-brand-blue/5 to-brand-green/5">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">What Our Clients Say</h2>
-            <p className="text-lg text-muted-foreground">Trusted by innovators and IP professionals worldwide</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-bold text-brand-blue">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                      <div className="text-xs text-muted-foreground">{testimonial.company}</div>
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground italic text-sm leading-relaxed">"{testimonial.content}"</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyChoose4 
+        items={whyChoose}
+        title="Why Choose EnviroAndIPR"
+        subtitle="Your strategic partner for comprehensive IP protection and business-driven intellectual property solutions"
+      />
 
-      {/* Why Choose Section */}
-      <section className="py-16 md:py-20 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">Why Choose EnviroAndIPR</h2>
-            <p className="text-lg text-muted-foreground">Four key reasons innovators trust us with their IP</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover-lift transition-all duration-300 border-0 shadow-elegant hover:shadow-hover">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-brand-green/10 rounded-xl">
-                      <benefit.icon className="w-8 h-8 text-brand-green" />
-                    </div>
-                  </div>
-                  <h3 className="font-bold mb-3 text-brand-blue">{benefit.title}</h3>
-                  <p className="text-muted-foreground text-sm">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQTabs 
+        tabs={faqTabs}
+        title="Frequently Asked Questions"
+        subtitle="Get answers to common questions about our IP services, processes, and strategic approach"
+      />
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-20 px-4 bg-accent/20">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-blue">Frequently Asked Questions</h2>
-            <p className="text-lg text-muted-foreground">Get answers to common IP and patent questions</p>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg border-0 shadow-elegant">
-                  <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <HelpCircle className="w-5 h-5 text-brand-blue" />
-                      <span className="font-medium text-left">{faq.question}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4">
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-brand-green to-brand-blue relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src={ctaIllustration} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto text-center relative">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-            Ready to Secure Your Next Big Idea?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get expert IP consultation and protect your innovations with proven strategies
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={handleWhatsAppClick} className="bg-white text-brand-green hover:bg-white/90 hover-lift shadow-xl">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Start WhatsApp Chat
-            </Button>
-            <Button size="lg" variant="outline" asChild className="bg text-brand-green- text-white hover:bg-white hover:text-brand-green hover-lift">
-              <a href="/contact">
-                <Mail className="w-5 h-5 mr-2" />
-                Contact Us
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <WhatsAppButton />
+      <CTAFullWidth
+        headline="Ready to Secure Your Next Big Idea?"
+        subheadline="Transform your innovations into competitive advantages with expert IP strategy, comprehensive protection, and strategic portfolio management."
+        primaryButtonText="WhatsApp Consultation"
+        secondaryButtonText="Contact Us"
+        onPrimaryClick={handleWhatsAppClick}
+        onSecondaryClick={handleContactClick}
+      />
     </Layout>
   );
 };
