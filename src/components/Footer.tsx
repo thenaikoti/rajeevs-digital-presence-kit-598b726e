@@ -53,7 +53,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Guntur, Andhra pradesh</Link>
+                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Hyderabad, Telangana</Link>
               </li>
             </ul>
           </div>
@@ -64,15 +64,15 @@ const Footer = () => {
             <div className="space-y-3">
               <a href="tel:+91XXXXXXXXXX" className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
                 <Phone size={16} />
-                <span>+91-XXXXXXXXXX</span>
+                <span>+91 89195 18016</span>
               </a>
               <a href="mailto:rajeev.ranjan@email.com" className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
                 <Mail size={16} />
-                <span>rajeev.ranjan@email.com</span>
+                <span>rajeevbte94@gmail.com</span>
               </a>
               <div className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>New Delhi, India</span>
+                <span>Hyderabad, Telangana</span>
               </div>
               <div className="text-gray-300 text-sm">
                 <span>EnviroAndIPR.com</span>
