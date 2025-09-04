@@ -11,6 +11,10 @@ import Services from "./pages/Services";
 import EnvironmentalServices from "./pages/EnvironmentalServices";
 import IPRServices from "./pages/IPRServices";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import BlogPost from "./pages/BlogPost";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -97,6 +101,10 @@ const App = () => (
             <Route path="/environmental-services" element={<EnvironmentalServices />} />
             <Route path="/ipr-services" element={<IPRServices />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogPost />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
