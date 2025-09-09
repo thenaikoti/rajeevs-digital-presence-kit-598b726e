@@ -76,6 +76,13 @@ const EnvironmentalServices = () => {
       icon: <GraduationCap className="w-12 h-12" />,
       title: "Teaching & Research Support",
       description: "Environmental education, training, research support from UG to PhD levels.",
+      bulletPoints: [
+        "Curriculum development for environmental science programs at undergraduate and postgraduate levels",
+        "Research methodology training and thesis supervision for M.Tech, M.Sc, and PhD students",
+        "Publication support including research paper writing, journal selection, and peer review process guidance",
+        "Competitive exam preparation for UGC-NET, UPSC Environmental Science, and state-level environmental officer positions",
+        "Workshop and seminar organization on latest environmental technologies and research methodologies"
+      ],
       details: "Comprehensive educational and research support services spanning undergraduate to doctoral levels. We provide curriculum development, research methodology training, thesis supervision, publication support, and competitive exam preparation including UGC-NET and UPSC environmental science papers. Our academic services bridge the gap between theoretical knowledge and practical environmental applications."
     }
   ];

@@ -8,6 +8,7 @@ export interface ServiceCard {
   title: string;
   description: string;
   details?: string;
+  bulletPoints?: string[];
 }
 
 interface IconCardGridProps {
@@ -68,6 +69,20 @@ const IconCardGrid = ({ services, columns = 3, title, subtitle }: IconCardGridPr
                 {/* Description */}
                 <p className="text-body text-sm leading-relaxed">{service.description}</p>
                 
+                {/* Bullet Points */}
+                {service.bulletPoints && (
+                  <div className="pt-2">
+                    <ul className="space-y-2">
+                      {service.bulletPoints.map((point, pointIndex) => (
+                        <li key={pointIndex} className="flex items-start gap-2 text-small text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-brand-green rounded-full mt-2 flex-shrink-0" />
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {/* Expandable Details */}
                 {service.details && (
                   <>
