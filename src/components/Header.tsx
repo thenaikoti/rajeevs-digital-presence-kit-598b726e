@@ -50,7 +50,7 @@ const Header = () => {
             </a>
             <a href="mailto:rajeev.ranjan@email.com" className="flex items-center space-x-2 text-gray-600 hover:text-green-600 transition-colors">
               <Mail size={16} />
-              <span className="text-sm">rajeevbte94@gmail.com</span>
+              <span className="text-sm">rajeev@enviroandipr.com</span>
             </a>
           </div>
 
