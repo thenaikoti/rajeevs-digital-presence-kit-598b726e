@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import DOMPurify from 'dompurify';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -80,17 +81,68 @@ const AdminDashboard = () => {
       .trim();
   };
 
+  const validateInput = (data: typeof formData) => {
+    const errors: string[] = [];
+    
+    // Title validation
+    if (!data.title.trim()) {
+      errors.push('Title is required');
+    } else if (data.title.length > 200) {
+      errors.push('Title must be less than 200 characters');
+    }
+    
+    // Content validation
+    if (!data.content.trim()) {
+      errors.push('Content is required');
+    } else if (data.content.length > 50000) {
+      errors.push('Content must be less than 50,000 characters');
+    }
+    
+    // Excerpt validation
+    if (data.excerpt && data.excerpt.length > 500) {
+      errors.push('Excerpt must be less than 500 characters');
+    }
+    
+    // Featured image URL validation
+    if (data.featured_image && !isValidUrl(data.featured_image)) {
+      errors.push('Featured image must be a valid URL');
+    }
+    
+    return errors;
+  };
+  
+  const isValidUrl = (string: string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
   const handleSavePost = async () => {
-    if (!formData.title || !formData.content) {
-      toast.error('Title and content are required');
+    // Validate input
+    const validationErrors = validateInput(formData);
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]);
       return;
     }
 
     const slug = generateSlug(formData.title);
+    
+    // Sanitize content before saving
+    const sanitizedContent = DOMPurify.sanitize(formData.content, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre'],
+      ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class']
+    });
+    
     const postData = {
-      ...formData,
-      slug,
-      excerpt: formData.excerpt || formData.content.substring(0, 200) + '...'
+      title: formData.title.trim(),
+      content: sanitizedContent,
+      excerpt: formData.excerpt?.trim() || sanitizedContent.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+      featured_image: formData.featured_image?.trim() || null,
+      published: formData.published,
+      slug
     };
 
     try {
