@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_events: {
+        Row: {
+          created_at: string | null
+          device_type: string | null
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          page_path: string
+          referrer: string | null
+          session_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          device_type?: string | null
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          page_path: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          device_type?: string | null
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          page_path?: string
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       blog_posts: {
         Row: {
           author_name: string
@@ -26,6 +62,7 @@ export type Database = {
           slug: string
           title: string
           updated_at: string
+          view_count: number | null
         }
         Insert: {
           author_name?: string
@@ -38,6 +75,7 @@ export type Database = {
           slug: string
           title: string
           updated_at?: string
+          view_count?: number | null
         }
         Update: {
           author_name?: string
@@ -50,6 +88,40 @@ export type Database = {
           slug?: string
           title?: string
           updated_at?: string
+          view_count?: number | null
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          company: string | null
+          email: string
+          full_name: string
+          id: string
+          message: string
+          phone: string
+          service_of_interest: string
+          submitted_at: string | null
+        }
+        Insert: {
+          company?: string | null
+          email: string
+          full_name: string
+          id?: string
+          message: string
+          phone: string
+          service_of_interest: string
+          submitted_at?: string | null
+        }
+        Update: {
+          company?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string
+          phone?: string
+          service_of_interest?: string
+          submitted_at?: string | null
         }
         Relationships: []
       }
@@ -80,6 +152,27 @@ export type Database = {
         }
         Relationships: []
       }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -92,6 +185,17 @@ export type Database = {
       get_user_role: {
         Args: { user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      increment_blog_views: {
+        Args: { post_slug: string }
+        Returns: undefined
       }
     }
     Enums: {
