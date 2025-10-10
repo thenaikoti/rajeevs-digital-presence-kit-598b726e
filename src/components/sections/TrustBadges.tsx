@@ -23,6 +23,18 @@ const TrustBadges = ({
     name: "Company 5",
     width: "w-24"
   }];
-  return;
+  return (
+    <section className="section-padding bg-muted/30">
+      <div className="container-custom text-center">
+        <h2 className="text-h3 mb-3 text-ink">{title}</h2>
+        {subtitle && <p className="text-text mb-12">{subtitle}</p>}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          {logos.map((logo, index) => (
+            <div key={index} className={`${logo.width} h-12 bg-muted/50 rounded-lg`} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 export default TrustBadges;
