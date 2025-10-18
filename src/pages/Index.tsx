@@ -101,7 +101,7 @@ const Index = () => {
       <HeroSplit headline="Protect Your Ideas. Power Your Growth. Preserve Our Planet." subheadline="EnviroAndIPR helps innovators, businesses, and institutions secure intellectual property and achieve environmental compliance — so you can grow faster, safer, and smarter." ctaPrimary="Book a Free Consultation Today" ctaSecondary="Chat with Us on WhatsApp" imageUrl={heroImage} imageAlt="Innovation and sustainability combined - business growth with environmental protection" onPrimaryClick={handleConsultationClick} onSecondaryClick={handleWhatsAppClick} />
 
       {/* 2. Trust Badges / Social Proof */}
-      <TrustBadges title="Trusted by 500+ Innovators, Enterprises, and Institutions Worldwide" />
+      
 
       {/* 3. Core Services (3 Pillars) */}
       <IconCardGrid title="One Partner. Two Missions. Infinite Value." subtitle="We combine deep expertise in Intellectual Property and Environmental Consulting to give you a one-stop solution for compliance, protection, and growth." services={coreServices} columns={3} />
