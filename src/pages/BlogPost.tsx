@@ -27,7 +27,7 @@ const BlogPost = () => {
       if (!slug) return;
 
       const { data, error } = await supabase
-        .from('blog_posts')
+        .from('blog_posts' as any)
         .select('*')
         .eq('slug', slug)
         .eq('published', true)

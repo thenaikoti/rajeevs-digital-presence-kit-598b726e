@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import EnvironmentalServices from "./pages/EnvironmentalServices";
 import IPRServices from "./pages/IPRServices";
+import LPOServices from "./pages/LPOServices";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import BlogPost from "./pages/BlogPost";
@@ -100,6 +101,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/environmental-services" element={<EnvironmentalServices />} />
             <Route path="/ipr-services" element={<IPRServices />} />
+            <Route path="/lpo-services" element={<LPOServices />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/:slug" element={<BlogPost />} />
