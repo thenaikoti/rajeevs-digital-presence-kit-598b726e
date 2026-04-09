@@ -1,4 +1,4 @@
-import { Search, FileText, Eye, Shield, Scale, CheckCircle, MessageCircle, Users, Clock, Target, TrendingUp, Award, HelpCircle, Lock, DollarSign, BookOpen, Building, Briefcase, GraduationCap } from 'lucide-react';
+import { Search, FileText, Eye, Shield, Scale, Users, Clock, Target, Award, Lock, DollarSign, Briefcase, GraduationCap } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import Layout from '@/components/Layout';
 import HeroSplit from '@/components/sections/HeroSplit';

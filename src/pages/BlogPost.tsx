@@ -26,8 +26,8 @@ const BlogPost = () => {
     const fetchPost = async () => {
       if (!slug) return;
 
-      const { data, error } = await supabase
-        .from('blog_posts' as any)
+      const { data, error } = await (supabase as any)
+        .from('blog_posts')
         .select('*')
         .eq('slug', slug)
         .eq('published', true)

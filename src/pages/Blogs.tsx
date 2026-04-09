@@ -21,8 +21,8 @@ const Blogs = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data, error } = await supabase
-        .from('blog_posts' as any)
+      const { data, error } = await (supabase as any)
+        .from('blog_posts')
         .select('id, title, excerpt, slug, featured_image, author_name, created_at')
         .eq('published', true)
         .order('created_at', { ascending: false });
