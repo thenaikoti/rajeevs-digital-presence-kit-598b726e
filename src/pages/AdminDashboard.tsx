@@ -62,7 +62,7 @@ const AdminDashboard = () => {
   }, [navigate]);
 
   const fetchPosts = async () => {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('blog_posts')
       .select('*')
       .order('created_at', { ascending: false });
@@ -147,7 +147,7 @@ const AdminDashboard = () => {
 
     try {
       if (editingPost) {
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('blog_posts')
           .update(postData)
           .eq('id', editingPost.id);
@@ -155,7 +155,7 @@ const AdminDashboard = () => {
         if (error) throw error;
         toast.success('Post updated successfully!');
       } else {
-        const { error } = await supabase
+        const { error } = await (supabase as any)
           .from('blog_posts')
           .insert([postData]);
 
@@ -176,7 +176,7 @@ const AdminDashboard = () => {
     if (!confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('blog_posts')
         .delete()
         .eq('id', id);
