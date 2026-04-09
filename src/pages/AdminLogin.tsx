@@ -24,7 +24,7 @@ const AdminLogin = () => {
       });
 
       if (error) {
-        toast.error('Login failed: ' + error.message);
+        toast.error('Invalid email or password');
       } else {
         toast.success('Login successful!');
         navigate('/admin');
