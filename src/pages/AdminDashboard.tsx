@@ -44,6 +44,20 @@ const AdminDashboard = () => {
         navigate('/admin/login');
         return;
       }
+
+      // Verify admin role
+      const { data: roleData } = await (supabase as any)
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', session.user.id)
+        .eq('role', 'admin')
+        .maybeSingle();
+
+      if (!roleData) {
+        navigate('/');
+        return;
+      }
+
       setUser(session.user);
       fetchPosts();
     };

@@ -1,11 +1,23 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 import Layout from '../components/Layout';
 import HeroSplit from '../components/sections/HeroSplit';
 import FAQTabs from '../components/sections/FAQTabs';
 import { useToast } from '../hooks/use-toast';
 import heroContact from '@/assets/hero-contact.jpg';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be less than 100 characters'),
+  email: z.string().trim().email('Please enter a valid email address').max(255, 'Email must be less than 255 characters'),
+  phone: z.string().trim().max(20, 'Phone number is too long').optional().or(z.literal('')),
+  company: z.string().trim().max(200, 'Company name is too long').optional().or(z.literal('')),
+  service: z.string().max(200).optional().or(z.literal('')),
+  message: z.string().trim().min(10, 'Message must be at least 10 characters').max(2000, 'Message must be less than 2000 characters'),
+});
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,11 +27,12 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
-  const services = ['Environmental Impact Assessment (EIA)', 'Environmental Clearance', 'Patent Search & Analysis', 'Patent Filing & Drafting', 'ESG Reporting', 'IP Strategy Consulting', 'General Consultation'];
+  const { toast } = useToast();
+
+  const services = ['Environmental Impact Assessment (EIA)', 'Environmental Clearance', 'Patent Search & Analysis', 'Patent Filing & Drafting', 'ESG Reporting', 'IP Strategy Consulting', 'LPO Services', 'General Consultation'];
+
   const faqTabs = [{
     icon: <MessageCircle className="w-5 h-5" />,
     label: "Getting Started",
@@ -57,38 +70,58 @@ const Contact = () => {
       answer: "All client information is protected under strict confidentiality agreements. Our team follows professional ethics guidelines, and we implement secure systems for document handling and communication."
     }]
   }];
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error for the field being edited
+    if (formErrors[name]) {
+      setFormErrors(prev => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setFormErrors({});
 
-    // Simulate form submission
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.issues.forEach(issue => {
+        const field = issue.path[0] as string;
+        if (!errors[field]) errors[field] = issue.message;
+      });
+      setFormErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const validated = result.data;
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: validated.name,
+          email: validated.email,
+          phone: validated.phone || null,
+          company: validated.company || null,
+          service: validated.service || null,
+          message: validated.message,
+        });
+
+      if (error) throw error;
+
       toast({
         title: "Message Sent Successfully!",
         description: "Thank you for your inquiry. Rajeev will get back to you within 24 hours."
       });
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: ''
-      });
-    } catch (error) {
+      setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+    } catch {
       toast({
         title: "Error",
         description: "There was an error sending your message. Please try again.",
@@ -98,19 +131,25 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
   const handleWhatsAppClick = () => {
     const phoneNumber = "919195180016";
     const message = "Hi, I found your website and would like to discuss my environmental and IP consulting needs. Can we schedule a consultation?";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
+
   const handleContactClick = () => {
-    // Scroll to contact form
-    document.getElementById('contact-form')?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
-  return <Layout>
+
+  const FieldError = ({ field }: { field: string }) => {
+    if (!formErrors[field]) return null;
+    return <p className="text-red-500 text-xs mt-1">{formErrors[field]}</p>;
+  };
+
+  return (
+    <Layout>
       <Helmet>
         <title>Contact EnviroAndIPR - Get Expert Environmental & IP Consulting | Free Consultation</title>
         <meta name="description" content="Contact EnviroAndIPR for expert environmental and intellectual property consulting services. Schedule a free consultation for EIA, compliance, patent services, and more." />
@@ -119,94 +158,83 @@ const Contact = () => {
 
       <HeroSplit headline="Let's Discuss Your Next Project" subheadline="Ready to ensure compliance, protect your innovations, and drive sustainable growth? Get in touch with our expert team for personalized solutions." ctaPrimary="WhatsApp Consultation" ctaSecondary="Fill Contact Form" imageUrl={heroContact} imageAlt="Contact EnviroAndIPR team" onPrimaryClick={handleWhatsAppClick} onSecondaryClick={handleContactClick} />
 
-      {/* Contact Section */}
       <section id="contact-form" className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div>
               <h2 className="text-h2 mb-8 text-ink">Send a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-ink mb-2">
-                      Full Name *
-                    </label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="Your full name" />
+                    <label htmlFor="name" className="block text-sm font-medium text-ink mb-2">Full Name *</label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} maxLength={100} required className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="Your full name" />
+                    <FieldError field="name" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-ink mb-2">
-                      Email Address *
-                    </label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="your.email@example.com" />
+                    <label htmlFor="email" className="block text-sm font-medium text-ink mb-2">Email Address *</label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} maxLength={255} required className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="your.email@example.com" />
+                    <FieldError field="email" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-ink mb-2">
-                      Phone Number
-                    </label>
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="+91 98765 43210" />
+                    <label htmlFor="phone" className="block text-sm font-medium text-ink mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} maxLength={20} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="+91 98765 43210" />
+                    <FieldError field="phone" />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-ink mb-2">
-                      Company Name
-                    </label>
-                    <input type="text" id="company" name="company" value={formData.company} onChange={handleInputChange} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="Your company" />
+                    <label htmlFor="company" className="block text-sm font-medium text-ink mb-2">Company Name</label>
+                    <input type="text" id="company" name="company" value={formData.company} onChange={handleInputChange} maxLength={200} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card" placeholder="Your company" />
+                    <FieldError field="company" />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-ink mb-2">
-                    Service of Interest
-                  </label>
+                  <label htmlFor="service" className="block text-sm font-medium text-ink mb-2">Service of Interest</label>
                   <select id="service" name="service" value={formData.service} onChange={handleInputChange} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors bg-card">
                     <option value="">Select a service</option>
-                    {services.map(service => <option key={service} value={service}>
-                        {service}
-                      </option>)}
+                    {services.map(service => <option key={service} value={service}>{service}</option>)}
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-ink mb-2">
-                    Message *
-                  </label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows={6} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors resize-vertical bg-card" placeholder="Tell us about your project, challenges, or how we can help you..."></textarea>
+                  <label htmlFor="message" className="block text-sm font-medium text-ink mb-2">Message *</label>
+                  <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required maxLength={2000} rows={6} className="w-full px-4 py-3 border border-muted rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors resize-vertical bg-card" placeholder="Tell us about your project, challenges, or how we can help you..."></textarea>
+                  <div className="flex justify-between items-center mt-1">
+                    <FieldError field="message" />
+                    <span className="text-xs text-muted-foreground">{formData.message.length}/2000</span>
+                  </div>
                 </div>
 
                 <button type="submit" disabled={isSubmitting} className="w-full bg-brand-green hover:bg-brand-green/90 disabled:bg-brand-green/50 text-background px-8 py-4 rounded-lg font-semibold inline-flex items-center justify-center space-x-2 transition-all duration-300 hover-lift shadow-elegant disabled:transform-none">
-                  {isSubmitting ? <>
+                  {isSubmitting ? (
+                    <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-background"></div>
                       <span>Sending...</span>
-                    </> : <>
+                    </>
+                  ) : (
+                    <>
                       <Send size={20} />
                       <span>Send Message</span>
-                    </>}
+                    </>
+                  )}
                 </button>
               </form>
             </div>
 
-            {/* Contact Information */}
             <div>
               <h2 className="text-h2 mb-8 text-ink">Contact Information</h2>
-              
               <div className="space-y-8 mb-12">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-brand-green/10 rounded-lg p-3">
-                    <Phone className="w-6 h-6 text-brand-green" />
-                  </div>
+                  <div className="bg-brand-green/10 rounded-lg p-3"><Phone className="w-6 h-6 text-brand-green" /></div>
                   <div>
                     <h3 className="font-semibold text-ink mb-1">Phone</h3>
                     <a href="tel:+919195180016" className="text-text hover:text-brand-green transition-colors">+91-89195 18016</a>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
-                  <div className="bg-brand-green/10 rounded-lg p-3">
-                    <Mail className="w-6 h-6 text-brand-green" />
-                  </div>
+                  <div className="bg-brand-green/10 rounded-lg p-3"><Mail className="w-6 h-6 text-brand-green" /></div>
                   <div>
                     <h3 className="font-semibold text-ink mb-1">Email</h3>
                     <div className="space-y-1">
@@ -215,54 +243,37 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
-                  <div className="bg-brand-green/10 rounded-lg p-3">
-                    <MapPin className="w-6 h-6 text-brand-green" />
-                  </div>
+                  <div className="bg-brand-green/10 rounded-lg p-3"><MapPin className="w-6 h-6 text-brand-green" /></div>
                   <div>
                     <h3 className="font-semibold text-ink mb-1">Location</h3>
                     <p className="text-text">Hyderabad, Telangana</p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
-                  <div className="bg-brand-green/10 rounded-lg p-3">
-                    <Clock className="w-6 h-6 text-brand-green" />
-                  </div>
+                  <div className="bg-brand-green/10 rounded-lg p-3"><Clock className="w-6 h-6 text-brand-green" /></div>
                   <div>
                     <h3 className="font-semibold text-ink mb-1">Business Hours</h3>
-                    <p className="text-text">
-                      Mon - Fri: 9:00 AM - 6:00 PM IST<br />
-                      Sat: 10:00 AM - 2:00 PM IST
-                    </p>
+                    <p className="text-text">Mon - Fri: 9:00 AM - 6:00 PM IST<br />Sat: 10:00 AM - 2:00 PM IST</p>
                   </div>
                 </div>
               </div>
 
-              {/* WhatsApp CTA */}
               <div className="bg-brand-green/5 rounded-xl p-6 border border-brand-green/20">
-                <h3 className="text-lg font-semibold text-ink mb-3">
-                  Prefer WhatsApp?
-                </h3>
-                <p className="text-text mb-4">
-                  Get instant responses and quick consultations via WhatsApp. Perfect for urgent queries and initial discussions.
-                </p>
+                <h3 className="text-lg font-semibold text-ink mb-3">Prefer WhatsApp?</h3>
+                <p className="text-text mb-4">Get instant responses and quick consultations via WhatsApp. Perfect for urgent queries and initial discussions.</p>
                 <button onClick={handleWhatsAppClick} className="bg-brand-green hover:bg-brand-green/90 text-background px-6 py-3 rounded-lg font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover-lift shadow-elegant">
                   <MessageCircle className="w-5 h-5" />
                   <span>Chat on WhatsApp</span>
                 </button>
               </div>
 
-              {/* Response Time Notice */}
               <div className="bg-card rounded-xl p-6 border border-muted/20 mt-6 shadow-card">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-brand-green mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-ink mb-2">Quick Response Guarantee</h3>
-                    <p className="text-text text-sm">
-                      All inquiries receive a response within 24 hours. For urgent matters, WhatsApp ensures faster communication.
-                    </p>
+                    <p className="text-text text-sm">All inquiries receive a response within 24 hours. For urgent matters, WhatsApp ensures faster communication.</p>
                   </div>
                 </div>
               </div>
@@ -272,6 +283,8 @@ const Contact = () => {
       </section>
 
       <FAQTabs tabs={faqTabs} title="Frequently Asked Questions" subtitle="Get answers to common questions about our services, process, and how we can help your business" />
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default Contact;
