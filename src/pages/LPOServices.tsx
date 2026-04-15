@@ -35,12 +35,6 @@ const LPOServices = () => {
       details: "Comprehensive compliance support including regulatory landscape analysis, policy drafting, compliance audits, risk assessments, and ongoing monitoring. We help organizations navigate complex regulatory environments across industries including healthcare, finance, environmental, and data privacy regulations."
     },
     {
-      icon: <Scale className="w-12 h-12" />,
-      title: "Litigation Support",
-      description: "End-to-end litigation support including case preparation, evidence organization, and legal document management.",
-      details: "Full-spectrum litigation support services including case strategy research, pleading preparation, discovery management, deposition summaries, trial preparation assistance, and post-trial support. We work seamlessly with legal teams to ensure efficient case management and favorable outcomes."
-    },
-    {
       icon: <Briefcase className="w-12 h-12" />,
       title: "Legal Process Management",
       description: "Streamlined legal workflow management, process optimization, and operational efficiency for law firms and legal departments.",
