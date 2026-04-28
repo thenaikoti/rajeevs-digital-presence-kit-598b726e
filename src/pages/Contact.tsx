@@ -247,7 +247,7 @@ const Contact = () => {
                   <div className="bg-brand-green/10 rounded-lg p-3"><MapPin className="w-6 h-6 text-brand-green" /></div>
                   <div>
                     <h3 className="font-semibold text-ink mb-1">Location</h3>
-                    <p className="text-text">Hyderabad, Telangana</p>
+                    <p className="text-text">Goa, India</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
