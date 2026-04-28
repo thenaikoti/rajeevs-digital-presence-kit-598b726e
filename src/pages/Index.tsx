@@ -1,5 +1,6 @@
 import { MessageCircle, Shield, Leaf, GraduationCap, CheckCircle, Users, Clock, Award, Star } from 'lucide-react';
 import Layout from '../components/Layout';
+import GovRegisteredBadge from '../components/GovRegisteredBadge';
 import HeroSplit from '../components/sections/HeroSplit';
 import TrustBadges from '../components/sections/TrustBadges';
 import IconCardGrid from '../components/sections/IconCardGrid';
@@ -99,6 +100,9 @@ const Index = () => {
   return <Layout>
       {/* 1. Hero Section */}
       <HeroSplit headline="Protect Your Ideas. Power Your Growth. Preserve Our Planet." subheadline="EnviroAndIPR helps innovators, businesses, and institutions secure intellectual property and achieve environmental compliance — so you can grow faster, safer, and smarter." ctaPrimary="Book a Free Consultation Today" ctaSecondary="Chat with Us on WhatsApp" imageUrl={heroImage} imageAlt="Innovation and sustainability combined - business growth with environmental protection" onPrimaryClick={handleConsultationClick} onSecondaryClick={handleWhatsAppClick} />
+
+      {/* Government Registration Trust Badge */}
+      <GovRegisteredBadge />
 
       {/* 2. Trust Badges / Social Proof */}
       

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Linkedin, Facebook } from 'lucide-react';
+import GovRegisteredBadge from './GovRegisteredBadge';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gray-900 text-white">
@@ -81,7 +82,7 @@ const Footer = () => {
               </a>
               <div className="flex items-start space-x-2 text-gray-300">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Hyderabad, Telangana</span>
+                <span>Goa, India</span>
               </div>
               <div className="text-gray-300 text-sm">
                 <span>EnviroAndIPR.com</span>
@@ -90,8 +91,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col items-center gap-4">
+          <GovRegisteredBadge variant="footer" />
+          <p className="text-gray-400 text-center">
             © {currentYear} Rajeev Ranjan. All rights reserved.
           </p>
         </div>

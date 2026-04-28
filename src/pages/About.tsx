@@ -8,6 +8,7 @@ import Timeline5 from '../components/sections/Timeline5';
 import WhyChoose4 from '../components/sections/WhyChoose4';
 import CTAFullWidth from '../components/sections/CTAFullWidth';
 import heroAboutTeam from '@/assets/hero-about-team.jpg';
+import GovRegisteredBadge from '../components/GovRegisteredBadge';
 
 const About = () => {
   const stats = [
@@ -113,6 +114,8 @@ const About = () => {
         onPrimaryClick={handleWhatsAppClick}
         onSecondaryClick={handleContactClick}
       />
+
+      <GovRegisteredBadge />
 
       <StatsStrip stats={stats} />
 
