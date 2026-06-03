@@ -211,8 +211,22 @@ const Services = () => {
     <Layout>
       <Helmet>
         <title>Environmental & IPR Services | EnviroAndIPR</title>
-        <meta name="description" content="Comprehensive environmental consultancy and intellectual property services. Expert EIA, compliance, patent filing, IP strategy, and sustainability solutions." />
-        <meta name="keywords" content="environmental consultancy, IPR services, patent filing, EIA reports, environmental compliance, intellectual property, sustainability reporting" />
+        <meta name="description" content="Comprehensive environmental consultancy and intellectual property services — EIA, compliance, patent filing, and IP strategy." />
+        <meta name="keywords" content="environmental consultancy, IPR services, patent filing, EIA reports, environmental compliance, sustainability reporting" />
+        <link rel="canonical" href="https://enviroandipr.com/services" />
+        <meta property="og:title" content="Environmental & IPR Services | EnviroAndIPR" />
+        <meta property="og:description" content="Integrated environmental and intellectual property services for responsible innovation." />
+        <meta property="og:url" content="https://enviroandipr.com/services" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems.map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+          }))
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}

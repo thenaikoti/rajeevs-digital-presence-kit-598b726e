@@ -279,9 +279,23 @@ const EnvironmentalServices = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Environmental Consultancy Services - EIA, Compliance & Sustainability | EnviroAndIPR</title>
-        <meta name="description" content="Expert environmental consultancy services including EIA reports, environmental clearance, compliance, sustainability reporting, and ESG consulting. Professional environmental solutions for businesses." />
-        <meta name="keywords" content="environmental consultancy, EIA reports, environmental compliance, sustainability reporting, ESG consulting, environmental clearance, environmental impact assessment" />
+        <title>Environmental Consultancy & EIA Services | EnviroAndIPR</title>
+        <meta name="description" content="Expert environmental consultancy — EIA reports, environmental clearance, compliance, ESG reporting, and sustainability solutions for businesses." />
+        <meta name="keywords" content="environmental consultancy, EIA reports, environmental compliance, sustainability reporting, ESG consulting, environmental clearance" />
+        <link rel="canonical" href="https://enviroandipr.com/environmental-services" />
+        <meta property="og:title" content="Environmental Consultancy & EIA Services | EnviroAndIPR" />
+        <meta property="og:description" content="EIA, clearance, compliance, and ESG reporting — comprehensive environmental solutions." />
+        <meta property="og:url" content="https://enviroandipr.com/environmental-services" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqTabs.flatMap(t => t.faqs).map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+          }))
+        })}</script>
       </Helmet>
 
       <HeroSplit
