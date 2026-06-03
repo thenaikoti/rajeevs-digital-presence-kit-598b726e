@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -49,6 +50,15 @@ const Blogs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Insights & Updates | EnviroAndIPR Blog</title>
+        <meta name="description" content="Latest articles on environmental compliance, sustainability, and intellectual property from EnviroAndIPR." />
+        <link rel="canonical" href="https://enviroandipr.com/blogs" />
+        <meta property="og:title" content="Insights & Updates | EnviroAndIPR Blog" />
+        <meta property="og:description" content="Latest articles on environmental compliance and IP protection." />
+        <meta property="og:url" content="https://enviroandipr.com/blogs" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
         <div className="container mx-auto px-4 text-center">

@@ -151,9 +151,14 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contact EnviroAndIPR - Get Expert Environmental & IP Consulting | Free Consultation</title>
-        <meta name="description" content="Contact EnviroAndIPR for expert environmental and intellectual property consulting services. Schedule a free consultation for EIA, compliance, patent services, and more." />
-        <meta name="keywords" content="contact EnviroAndIPR, environmental consulting contact, IP consulting contact, free consultation, business inquiry" />
+        <title>Contact EnviroAndIPR | Free Consultation</title>
+        <meta name="description" content="Contact EnviroAndIPR for expert environmental, IPR, and LPO consulting. Schedule a free consultation today." />
+        <meta name="keywords" content="contact EnviroAndIPR, environmental consulting contact, IP consulting contact, free consultation" />
+        <link rel="canonical" href="https://enviroandipr.com/contact" />
+        <meta property="og:title" content="Contact EnviroAndIPR | Free Consultation" />
+        <meta property="og:description" content="Reach our expert team for environmental, IPR, and LPO consulting." />
+        <meta property="og:url" content="https://enviroandipr.com/contact" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <HeroSplit headline="Let's Discuss Your Next Project" subheadline="Ready to ensure compliance, protect your innovations, and drive sustainable growth? Get in touch with our expert team for personalized solutions." ctaPrimary="WhatsApp Consultation" ctaSecondary="Fill Contact Form" imageUrl={heroContact} imageAlt="Contact EnviroAndIPR team" onPrimaryClick={handleWhatsAppClick} onSecondaryClick={handleContactClick} />

@@ -46,13 +46,19 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && <div className="md:hidden border-t border-gray-200 py-4">
+        {isMenuOpen && <div id="mobile-navigation" className="md:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)} className={`font-medium transition-colors ${isActive(item.href) ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}>
                   {item.name}

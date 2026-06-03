@@ -284,9 +284,23 @@ const IPRServices = () => {
   return (
     <Layout>
       <Helmet>
-        <title>IPR Consultancy Services - Patent Search, Filing & IP Strategy | EnviroAndIPR</title>
-        <meta name="description" content="Expert IPR consultancy services including patent search, patent filing, IP strategy, and intellectual property protection. Professional patent services for inventors and businesses." />
-        <meta name="keywords" content="IPR consultancy, patent search, patent filing, intellectual property, patent drafting, IP strategy, patent landscape analysis, patent portfolio" />
+        <title>IPR Consultancy & Patent Services | EnviroAndIPR</title>
+        <meta name="description" content="Expert IPR consultancy — patent search, drafting, filing, freedom-to-operate, and IP strategy for inventors, startups, and enterprises." />
+        <meta name="keywords" content="IPR consultancy, patent search, patent filing, intellectual property, patent drafting, IP strategy" />
+        <link rel="canonical" href="https://enviroandipr.com/ipr-services" />
+        <meta property="og:title" content="IPR Consultancy & Patent Services | EnviroAndIPR" />
+        <meta property="og:description" content="Patent search, filing, IP strategy, and portfolio management from EnviroAndIPR." />
+        <meta property="og:url" content="https://enviroandipr.com/ipr-services" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqTabs.flatMap(t => t.faqs).map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+          }))
+        })}</script>
       </Helmet>
 
       <HeroSplit

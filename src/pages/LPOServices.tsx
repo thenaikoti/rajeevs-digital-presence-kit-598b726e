@@ -87,8 +87,13 @@ const LPOServices = () => {
     <Layout>
       <Helmet>
         <title>LPO Services – Legal Process Outsourcing | EnviroAndIPR</title>
-        <meta name="description" content="Professional legal process outsourcing services including legal research, contract drafting, document review, compliance support, and litigation support. Cost-effective legal solutions." />
-        <meta name="keywords" content="LPO services, legal process outsourcing, legal research, contract drafting, document review, compliance support, litigation support, legal outsourcing India" />
+        <meta name="description" content="Professional Legal Process Outsourcing — legal research, contract drafting, document review, and compliance support with precision and confidentiality." />
+        <meta name="keywords" content="LPO services, legal process outsourcing, legal research, contract drafting, document review, compliance support" />
+        <link rel="canonical" href="https://enviroandipr.com/lpo-services" />
+        <meta property="og:title" content="LPO Services – Legal Process Outsourcing | EnviroAndIPR" />
+        <meta property="og:description" content="Cost-effective legal research, drafting, and document review for law firms and corporate legal teams." />
+        <meta property="og:url" content="https://enviroandipr.com/lpo-services" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <HeroSplit

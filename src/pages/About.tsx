@@ -99,9 +99,14 @@ const About = () => {
   return (
     <Layout>
       <Helmet>
-        <title>About EnviroAndIPR - Expert Environmental & IP Consultancy | Science, Law & Strategy</title>
-        <meta name="description" content="Learn about EnviroAndIPR's mission, expertise, and track record in environmental consultancy and intellectual property services. Science, law, and strategy under one roof." />
+        <title>About EnviroAndIPR | Environmental & IP Consultancy</title>
+        <meta name="description" content="Learn about EnviroAndIPR's mission, expertise, and proven track record in environmental consultancy and intellectual property services." />
         <meta name="keywords" content="about EnviroAndIPR, environmental consultancy, IP services, expert team, business consultancy, sustainability" />
+        <link rel="canonical" href="https://enviroandipr.com/about" />
+        <meta property="og:title" content="About EnviroAndIPR | Environmental & IP Consultancy" />
+        <meta property="og:description" content="Science, law, and strategy under one roof — meet the EnviroAndIPR team." />
+        <meta property="og:url" content="https://enviroandipr.com/about" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <HeroSplit

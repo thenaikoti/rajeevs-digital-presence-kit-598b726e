@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import DOMPurify from 'dompurify';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -75,6 +76,27 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{`${post.title} | EnviroAndIPR Blog`}</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://enviroandipr.com/blogs/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={`https://enviroandipr.com/blogs/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        {post.featured_image && <meta property="og:image" content={post.featured_image} />}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": post.title,
+          "description": post.excerpt,
+          "image": post.featured_image || undefined,
+          "datePublished": post.created_at,
+          "author": { "@type": "Person", "name": post.author_name },
+          "publisher": { "@type": "Organization", "name": "EnviroAndIPR" },
+          "mainEntityOfPage": `https://enviroandipr.com/blogs/${post.slug}`
+        })}</script>
+      </Helmet>
       <article className="max-w-4xl mx-auto px-4 py-20">
         {/* Back Button */}
         <div className="mb-8">
