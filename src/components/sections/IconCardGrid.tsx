@@ -98,15 +98,17 @@ const IconCardGrid = ({ services, columns = 3, title, subtitle }: IconCardGridPr
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCard(index)}
+                      aria-expanded={isExpanded}
+                      aria-label={`${isExpanded ? 'Show less about' : 'Learn more about'} ${service.title}`}
                       className="w-full text-brand-green hover:text-brand-green-glow hover:bg-brand-green/5 p-2"
                     >
                       {isExpanded ? (
                         <>
-                          Show Less <ChevronUp className="ml-1 h-4 w-4" />
+                          Show Less <ChevronUp className="ml-1 h-4 w-4" aria-hidden="true" />
                         </>
                       ) : (
                         <>
-                          Learn More <ChevronDown className="ml-1 h-4 w-4" />
+                          Learn More <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
                         </>
                       )}
                     </Button>

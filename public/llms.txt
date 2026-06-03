@@ -1,0 +1,14 @@
+# EnviroAndIPR
+
+> Environmental consultancy, intellectual property rights (IPR), and legal process outsourcing (LPO) services — EIA, compliance, patent search & filing, IP strategy, and legal research under one roof.
+
+## Pages
+
+- [Home](/): Overview of EnviroAndIPR's environmental, IPR, and LPO consultancy.
+- [About](/about): Mission, expertise, and team behind EnviroAndIPR.
+- [Environmental Services](/environmental-services): EIA reports, environmental clearance, compliance, ESG and CSR reporting.
+- [IPR Services](/ipr-services): Patent search, drafting, filing, freedom-to-operate, landscape analysis.
+- [LPO Services](/lpo-services): Legal research, contract drafting, document review, compliance support.
+- [Services](/services): Combined overview of environmental and IPR services.
+- [Blogs](/blogs): Articles on environmental compliance and intellectual property.
+- [Contact](/contact): Get in touch for a free consultation.
