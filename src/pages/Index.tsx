@@ -1,4 +1,5 @@
 import { MessageCircle, Shield, Leaf, GraduationCap, CheckCircle, Users, Clock, Award, Star } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import Layout from '../components/Layout';
 import GovRegisteredBadge from '../components/GovRegisteredBadge';
 import HeroSplit from '../components/sections/HeroSplit';
@@ -98,6 +99,15 @@ const Index = () => {
     window.location.href = '/contact';
   };
   return <Layout>
+      <Helmet>
+        <title>EnviroAndIPR – Environmental & IPR Consultancy</title>
+        <meta name="description" content="Protect your ideas, power your growth, and preserve the planet — environmental consultancy, IPR, and LPO services from EnviroAndIPR." />
+        <link rel="canonical" href="https://enviroandipr.com/" />
+        <meta property="og:title" content="EnviroAndIPR – Environmental & IPR Consultancy" />
+        <meta property="og:description" content="Environmental compliance and IP protection — so you grow faster, safer, and smarter." />
+        <meta property="og:url" content="https://enviroandipr.com/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* 1. Hero Section */}
       <HeroSplit headline="Protect Your Ideas. Power Your Growth. Preserve Our Planet." subheadline="EnviroAndIPR helps innovators, businesses, and institutions secure intellectual property and achieve environmental compliance — so you can grow faster, safer, and smarter." ctaPrimary="Book a Free Consultation Today" ctaSecondary="Chat with Us on WhatsApp" imageUrl={heroImage} imageAlt="Innovation and sustainability combined - business growth with environmental protection" onPrimaryClick={handleConsultationClick} onSecondaryClick={handleWhatsAppClick} />
 
