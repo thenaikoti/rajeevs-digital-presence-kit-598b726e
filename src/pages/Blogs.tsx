@@ -71,12 +71,43 @@ const Blogs = () => {
         </div>
       </section>
 
+      {/* Featured Article */}
+      <section className="py-12 border-b">
+        <div className="container mx-auto px-4">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">Featured Insight</h2>
+          <Link to="/blogs/environmental-compliance-regulations-india" className="block group">
+            <Card className="overflow-hidden md:grid md:grid-cols-2 hover:shadow-lg transition-all">
+              <div className="aspect-video md:aspect-auto overflow-hidden bg-secondary">
+                <img
+                  src="/__l5e/placeholder-hero.jpg"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                  alt="Environmental Compliance Regulations in India"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <span className="text-xs uppercase tracking-wider text-primary font-semibold mb-3">Environmental Compliance</span>
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  Environmental Compliance Regulations in India: Complete Guide for Businesses (2026)
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  A practical 2026 guide to environmental governance, CPCB &amp; SPCB regulations, clearances, audits, and ESG reporting for Indian businesses.
+                </p>
+                <span className="inline-flex items-center text-primary font-medium">
+                  Read the guide <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </Card>
+          </Link>
+        </div>
+      </section>
+
       {/* Blog Posts */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           {posts.length === 0 ? (
             <div className="text-center py-20">
-              <h2 className="text-2xl font-semibold text-foreground mb-4">No Blog Posts Yet</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">More articles coming soon</h2>
               <p className="text-muted-foreground mb-8">
                 We're working on creating valuable content for you. Check back soon!
               </p>
