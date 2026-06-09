@@ -620,7 +620,7 @@ const IPRProtectionSmallBusinessIndia = () => {
                   <Card key={s.t} className="p-5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="h-9 w-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-                        <s.icon className="h-4.5 w-4.5" />
+                        <s.icon className="h-4 w-4" />
                       </div>
                       <h4 className="font-semibold text-foreground">{s.t}</h4>
                     </div>
