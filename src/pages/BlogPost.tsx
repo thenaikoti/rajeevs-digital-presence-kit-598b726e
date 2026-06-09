@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import DOMPurify from 'dompurify';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
+import BlogImage from '@/components/BlogImage';
 
 interface BlogPost {
   id: string;
@@ -108,15 +109,14 @@ const BlogPost = () => {
         </div>
 
         {/* Featured Image */}
-        {post.featured_image && (
-          <div className="aspect-video mb-8 rounded-lg overflow-hidden">
-            <img
-              src={post.featured_image}
-              alt={post.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
+        <div className="mb-8">
+          <BlogImage
+            src={post.featured_image}
+            alt={post.title}
+            eager
+            wrapperClassName="rounded-lg shadow-card"
+          />
+        </div>
 
         {/* Article Header */}
         <header className="mb-8">
