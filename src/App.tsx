@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
 import BlogPost from "./pages/BlogPost";
 import EnvironmentalComplianceIndia from "./pages/blog/EnvironmentalComplianceIndia";
+import IPRProtectionSmallBusinessIndia from "./pages/blog/IPRProtectionSmallBusinessIndia";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogs/environmental-compliance-regulations-india" element={<EnvironmentalComplianceIndia />} />
+            <Route path="/blogs/ipr-protection-small-business-india" element={<IPRProtectionSmallBusinessIndia />} />
             <Route path="/blogs/:slug" element={<BlogPost />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminDashboard />} />
