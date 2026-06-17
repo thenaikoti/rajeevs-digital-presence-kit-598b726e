@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import BlogImage from '@/components/BlogImage';
 import envComplianceHero from '@/assets/environmental-compliance-india-2026.jpg';
 import iprPillarHero from '@/assets/ipr-protection-small-business-india.jpg';
+import lpoPillarHero from '@/assets/legal-process-outsourcing-services.jpg';
 
 interface BlogPost {
   id: string;
@@ -21,6 +22,15 @@ interface BlogPost {
 }
 
 const FEATURED = [
+  {
+    slug: 'legal-process-outsourcing-services',
+    image: lpoPillarHero,
+    category: 'Legal Process Outsourcing',
+    title: 'Legal Process Outsourcing (LPO): Complete Guide to Modern Legal Support Services (2026)',
+    excerpt:
+      'How law firms, corporates and compliance teams use LPO to reduce legal costs, scale specialised expertise and modernise legal operations with AI.',
+    alt: 'Modern legal operations team analysing AI-powered contract dashboards in a global LPO delivery centre',
+  },
   {
     slug: 'environmental-compliance-regulations-india',
     image: envComplianceHero,
@@ -90,7 +100,7 @@ const Blogs = () => {
       <section className="py-12 border-b">
         <div className="container mx-auto px-4">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-primary mb-6">Featured Insights</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURED.map((f) => (
               <Link key={f.slug} to={`/blogs/${f.slug}`} className="block group">
                 <Card className="overflow-hidden hover:shadow-lg transition-all h-full flex flex-col">
