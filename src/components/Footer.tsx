@@ -65,6 +65,11 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <a href="https://www.effectivecpmnetwork.com/xfkqz9iu2w?key=5047f610b5bb5e516231133e4052960d" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+                  Partner Link
+                </a>
+              </li>
             </ul>
           </div>
 
