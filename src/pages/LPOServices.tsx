@@ -7,6 +7,7 @@ import StatsStrip from '@/components/sections/StatsStrip';
 import WhyChoose4 from '@/components/sections/WhyChoose4';
 import CTAFullWidth from '@/components/sections/CTAFullWidth';
 import heroLpo from '@/assets/hero-lpo-services.jpg';
+import LeadMagnetCTA from '@/components/lead-magnet/LeadMagnetCTA';
 
 const LPOServices = () => {
   const services = [
@@ -120,6 +121,14 @@ const LPOServices = () => {
         items={whyChoose}
         title="Why Choose EnviroAndIPR for LPO"
         subtitle="Your trusted partner for high-quality, confidential, and cost-effective legal process outsourcing"
+      />
+
+      <LeadMagnetCTA
+        magnetId="lpo-services-guide"
+        variant="banner"
+        headline="LPO Services Guide"
+        description="Discover how legal process outsourcing can reduce costs and improve operational efficiency."
+        buttonLabel="Request Guide"
       />
 
       <CTAFullWidth
