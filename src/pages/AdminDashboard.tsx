@@ -9,6 +9,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
 import { Plus, Edit, Trash2, LogOut, Save, Calendar, User } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import LeadMagnetRequests from '@/components/admin/LeadMagnetRequests';
 
 interface BlogPost {
   id: string;
@@ -251,6 +253,17 @@ const AdminDashboard = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
+        <Tabs defaultValue="blog" className="w-full">
+          <TabsList className="mb-6">
+            <TabsTrigger value="blog">Blog Management</TabsTrigger>
+            <TabsTrigger value="leads">Lead Magnet Requests</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="leads">
+            <LeadMagnetRequests />
+          </TabsContent>
+
+          <TabsContent value="blog">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Blog Management</h1>
           <Button 
