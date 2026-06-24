@@ -20,6 +20,7 @@ import LegalProcessOutsourcingServices from "./pages/blog/LegalProcessOutsourcin
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import { LeadMagnetProvider } from "./components/lead-magnet/LeadMagnetProvider";
 
 const queryClient = new QueryClient();
 
@@ -30,23 +31,25 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/environmental-services" element={<EnvironmentalServices />} />
-            <Route path="/ipr-services" element={<IPRServices />} />
-            <Route path="/lpo-services" element={<LPOServices />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blogs/environmental-compliance-regulations-india" element={<EnvironmentalComplianceIndia />} />
-            <Route path="/blogs/ipr-protection-small-business-india" element={<IPRProtectionSmallBusinessIndia />} />
-            <Route path="/blogs/legal-process-outsourcing-services" element={<LegalProcessOutsourcingServices />} />
-            <Route path="/blogs/:slug" element={<BlogPost />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <LeadMagnetProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/environmental-services" element={<EnvironmentalServices />} />
+              <Route path="/ipr-services" element={<IPRServices />} />
+              <Route path="/lpo-services" element={<LPOServices />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/environmental-compliance-regulations-india" element={<EnvironmentalComplianceIndia />} />
+              <Route path="/blogs/ipr-protection-small-business-india" element={<IPRProtectionSmallBusinessIndia />} />
+              <Route path="/blogs/legal-process-outsourcing-services" element={<LegalProcessOutsourcingServices />} />
+              <Route path="/blogs/:slug" element={<BlogPost />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </LeadMagnetProvider>
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>
