@@ -11,6 +11,8 @@ import Testimonials3 from '@/components/sections/Testimonials3';
 import WhyChoose4 from '@/components/sections/WhyChoose4';
 import FAQTabs from '@/components/sections/FAQTabs';
 import CTAFullWidth from '@/components/sections/CTAFullWidth';
+import ServicePageResources from '@/components/sections/ServicePageResources';
+import LeadMagnetCTA from '@/components/lead-magnet/LeadMagnetCTA';
 import heroIprPatents from '@/assets/hero-ipr-patents.jpg';
 import testimonialAvatar1 from '@/assets/testimonial-avatar-1.jpg';
 import testimonialAvatar2 from '@/assets/testimonial-avatar-2.jpg';
@@ -350,6 +352,20 @@ const IPRServices = () => {
         tabs={faqTabs}
         title="Frequently Asked Questions"
         subtitle="Get answers to common questions about our IP services, processes, and strategic approach"
+      />
+
+      <LeadMagnetCTA
+        magnetId="patent-filing-india-guide"
+        variant="banner"
+        headline="Planning to File a Patent?"
+        description="Download our free Patent Filing Guide and understand the complete filing process before getting started."
+        buttonLabel="Request Free Guide"
+      />
+
+      <ServicePageResources
+        category="IPR"
+        title="Free IPR Guides & Checklists"
+        subtitle="Practical references for patents, trademarks, designs, and IP strategy."
       />
 
       <CTAFullWidth

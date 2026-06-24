@@ -11,6 +11,8 @@ import Testimonials3 from '@/components/sections/Testimonials3';
 import WhyChoose4 from '@/components/sections/WhyChoose4';
 import FAQTabs from '@/components/sections/FAQTabs';
 import CTAFullWidth from '@/components/sections/CTAFullWidth';
+import ServicePageResources from '@/components/sections/ServicePageResources';
+import LeadMagnetCTA from '@/components/lead-magnet/LeadMagnetCTA';
 import heroSustainability from '@/assets/hero-sustainability.jpg';
 import testimonialAvatar1 from '@/assets/testimonial-avatar-1.jpg';
 import testimonialAvatar2 from '@/assets/testimonial-avatar-2.jpg';
@@ -345,6 +347,20 @@ const EnvironmentalServices = () => {
         tabs={faqTabs}
         title="Frequently Asked Questions"
         subtitle="Get answers to common questions about our environmental services and compliance processes"
+      />
+
+      <LeadMagnetCTA
+        magnetId="environmental-compliance-calendar"
+        variant="banner"
+        headline="Environmental Compliance Calendar"
+        description="Track important compliance deadlines with our practical compliance planner."
+        buttonLabel="Request Calendar"
+      />
+
+      <ServicePageResources
+        category="Environmental"
+        title="Free Environmental Compliance Resources"
+        subtitle="Checklists, guides, and templates to help you stay audit-ready."
       />
 
       <CTAFullWidth

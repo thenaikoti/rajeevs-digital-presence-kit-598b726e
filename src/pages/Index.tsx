@@ -9,6 +9,7 @@ import WhyChoose4 from '../components/sections/WhyChoose4';
 import CaseMini from '../components/sections/CaseMini';
 import Testimonials3 from '../components/sections/Testimonials3';
 import CTAFullWidth from '../components/sections/CTAFullWidth';
+import FeaturedLeadMagnets from '../components/sections/FeaturedLeadMagnets';
 import heroImage from '../assets/hero-innovation-sustainability.jpg';
 import ctaImage from '../assets/cta-network-innovation.jpg';
 import avatarImage from '../assets/testimonial-avatar-1.jpg';
@@ -155,6 +156,9 @@ const Index = () => {
           </button>
         </div>
       </section>
+
+      {/* Free Lead Magnets */}
+      <FeaturedLeadMagnets />
 
       {/* 6. Testimonials (Social Proof) */}
       <Testimonials3 title="What Our Clients Say" testimonials={testimonials} />
