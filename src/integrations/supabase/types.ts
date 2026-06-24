@@ -86,6 +86,54 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_magnet_requests: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          lead_source: string | null
+          notes: string | null
+          organization: string | null
+          page_url: string | null
+          phone: string
+          requested_resource: string
+          service_interest: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          lead_source?: string | null
+          notes?: string | null
+          organization?: string | null
+          page_url?: string | null
+          phone: string
+          requested_resource: string
+          service_interest?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          lead_source?: string | null
+          notes?: string | null
+          organization?: string | null
+          page_url?: string | null
+          phone?: string
+          requested_resource?: string
+          service_interest?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
