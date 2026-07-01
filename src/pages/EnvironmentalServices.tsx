@@ -312,9 +312,51 @@ const EnvironmentalServices = () => {
       />
 
       <IconCardGrid 
-        services={services}
+        services={services.slice(0, 2)}
         title="Our Environmental Services"
         subtitle="Comprehensive environmental solutions to ensure compliance and drive sustainable business practices"
+      />
+      <div className="container-custom -mt-12 mb-12">
+        <LeadMagnetCTA
+          magnetId="eia-checklist-india"
+          headline="EIA Project Checklist"
+          description="Ensure your environmental impact assessment process covers all required documentation."
+          buttonLabel="Request Checklist"
+        />
+      </div>
+
+      <IconCardGrid 
+        services={services.slice(2, 5)}
+      />
+      <div className="container-custom -mt-12 mb-12 grid md:grid-cols-2 gap-6">
+        <LeadMagnetCTA
+          magnetId="environmental-compliance-calendar"
+          headline="Environmental Compliance Calendar"
+          description="Track important compliance deadlines with our practical compliance planner."
+          buttonLabel="Request Calendar"
+        />
+        <LeadMagnetCTA
+          magnetId="industrial-water-audit-template"
+          headline="Industrial Water Audit Template"
+          description="A practical framework for evaluating industrial water consumption and efficiency."
+          buttonLabel="Request Template"
+        />
+      </div>
+
+      <IconCardGrid 
+        services={services.slice(5, 8)}
+      />
+      <div className="container-custom -mt-12 mb-12">
+        <LeadMagnetCTA
+          magnetId="hazardous-waste-sme-guide"
+          headline="Hazardous Waste Compliance Guide"
+          description="Understand waste handling, storage, transportation, and regulatory obligations."
+          buttonLabel="Request Guide"
+        />
+      </div>
+
+      <IconCardGrid 
+        services={services.slice(8)}
       />
 
       <StatsStrip stats={stats} />

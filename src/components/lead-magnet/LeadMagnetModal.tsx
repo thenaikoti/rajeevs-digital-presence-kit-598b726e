@@ -94,6 +94,27 @@ const LeadMagnetModal = ({ magnet, open, onOpenChange }: Props) => {
       return;
     }
 
+    // Trigger admin notification via Edge Function (optional/if configured)
+    try {
+      await supabase.functions.invoke('send-admin-notification', {
+        body: {
+          lead_details: {
+            name: payload.full_name,
+            email: payload.email,
+            phone: payload.phone,
+            organization: payload.organization,
+            service_interest: payload.service_interest,
+          },
+          requested_resource: payload.requested_resource,
+          timestamp: new Date().toISOString(),
+          page_url: payload.page_url,
+          lead_source: payload.lead_source,
+        }
+      });
+    } catch (e) {
+      console.warn("Admin notification function not configured or failed:", e);
+    }
+
     setForm(initial);
     setSuccess(true);
   };

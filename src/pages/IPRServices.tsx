@@ -317,9 +317,39 @@ const IPRServices = () => {
       />
 
       <IconCardGrid 
-        services={services}
+        services={services.slice(0, 5)}
         title="Our IPR Services"
         subtitle="Comprehensive intellectual property services to protect, enhance, and monetize your innovations"
+      />
+      <div className="container-custom -mt-12 mb-12">
+        <LeadMagnetCTA
+          magnetId="patent-filing-india-guide"
+          headline="Planning to File a Patent?"
+          description="Download our free Patent Filing Guide and understand the complete filing process before getting started."
+          buttonLabel="Request Free Guide"
+        />
+      </div>
+
+      <IconCardGrid 
+        services={services.slice(5, 8)}
+      />
+      <div className="container-custom -mt-12 mb-12 grid md:grid-cols-2 gap-6">
+        <LeadMagnetCTA
+          magnetId="trademark-checklist-india"
+          headline="Free Trademark Registration Checklist"
+          description="Avoid common filing mistakes and prepare your application correctly."
+          buttonLabel="Get Checklist"
+        />
+        <LeadMagnetCTA
+          magnetId="design-registration-guide"
+          headline="Design Registration Starter Guide"
+          description="Learn the process, requirements, and protection benefits."
+          buttonLabel="Request Guide"
+        />
+      </div>
+
+      <IconCardGrid 
+        services={services.slice(8)}
       />
 
       <StatsStrip stats={stats} />
